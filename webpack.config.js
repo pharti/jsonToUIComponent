@@ -40,6 +40,15 @@ const svgLoaderConfiguration = {
     ],
 };
 
+const htmlLoaderConfiguration = {
+    test: /\.html$/,
+    use: [
+        {
+            loader: 'html-loader',
+        },
+    ],
+};
+
 const imageLoaderConfiguration = {
     test: /\.(gif|jpe?g|png|svg)$/,
     use: {
@@ -71,6 +80,7 @@ module.exports = {
             babelLoaderConfiguration,
             imageLoaderConfiguration,
             svgLoaderConfiguration,
+            htmlLoaderConfiguration
         ],
     },
     plugins: [
