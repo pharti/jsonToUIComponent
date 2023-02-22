@@ -40,7 +40,7 @@ const testHTML = `
     `;
 
 const config = parseHtml(testHTML);
-
+console.log('config', config);
 const HomeScreen = () => {
     return (
         <SafeAreaView>

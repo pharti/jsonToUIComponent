@@ -1,6 +1,6 @@
 import React from "react";
 
-import { ComponentToFontStyleMap, ComponentToFontSizeMap, ComponentToFontWeightMap, KeysToComponentMap } from "../constants/mapperConstants";
+import { ComponentToFontStyleMap, ComponentToFontSizeMap, ComponentToFontWeightMap, ComponentToCommonTagsMap } from "../constants/mapperConstants";
 
 const generateAttributes = (config) => {
 
@@ -57,9 +57,9 @@ const generateElement = (config) => {
 
 const htmlElementCreator = (config) => {
     // console.log("config", config);
-    if (typeof KeysToComponentMap[config.type] !== "undefined") {
+    if (typeof ComponentToCommonTagsMap[config.type] !== "undefined") {
         return React.createElement(
-            KeysToComponentMap[config.type], // React component that we want to render
+            ComponentToCommonTagsMap[config.type], // React component that we want to render
             generateAttributes(config),
             generateElement(config)
         );
