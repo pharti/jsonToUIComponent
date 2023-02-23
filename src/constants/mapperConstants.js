@@ -1,5 +1,4 @@
-import { Box, Link, Text } from 'native-base';
-
+import { Box, Link, Text, Image, FormControl, Input, Button, ArrowBackIcon } from 'native-base';
 //... Maps native base component to common HTML tags
 export const ComponentToCommonTagsMap = {
     p: Text,
@@ -24,6 +23,11 @@ export const ComponentToCommonTagsMap = {
     del: Text,
     ins: Text,
     div: Box,
+    img: Image,
+    form: FormControl,
+    input: Input,
+    button: Button,
+    icon: ArrowBackIcon
 };
 
 //... Maps native base font size standards to HTML tags

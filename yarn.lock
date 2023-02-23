@@ -5699,6 +5699,11 @@ htmlparser2@8.0.1:
     domutils "^3.0.1"
     entities "^4.3.0"
 
+htmlstr-parser@^2.0.1:
+  version "2.0.1"
+  resolved "https://registry.npmjs.org/htmlstr-parser/-/htmlstr-parser-2.0.1.tgz"
+  integrity sha512-C5cIaazerkGS5xy7OdungyWVFNFgjcgHHuxdyNGG11kgfFa0xbAuVUDlxQFyF9vJGLkGKPTrO6HObmkeKU8yjw==
+
 http-deceiver@^1.2.7:
   version "1.2.7"
   resolved "https://registry.npmjs.org/http-deceiver/-/http-deceiver-1.2.7.tgz"
