@@ -27,19 +27,20 @@ export const componentConfig = {
                 tagName: 'img',
                 attributes: {
                     source: { uri: "https://wallpaperaccess.com/full/317501.jpg" },
-                    alt: "Alternate Text"
+                    alt: "Alternate Text",
+                    style: { height: 200, width: 'auto', borderRadius: 8 }
                 },
                 children: []
             },
             {
                 type: 'Element',
                 tagName: 'div',
-                attributes: { style: { fontSize: 16 } },
+                attributes: { style: {} },
                 children: [
                     {
                         type: 'Element',
-                        tagName: 'p',
-                        attributes: { style: { fontSize: 16 } },
+                        tagName: 'h1',
+                        attributes: { pt: '4', style: {} },
                         children: [
                             {
                                 type: 'Text',
@@ -49,12 +50,23 @@ export const componentConfig = {
                     },
                     {
                         type: 'Element',
-                        tagName: 'p',
-                        attributes: { style: { fontSize: 16 } },
+                        tagName: 'caption',
+                        attributes: { color: 'gray.500' },
                         children: [
                             {
                                 type: 'Text',
                                 content: 'Software Engineer'
+                            }
+                        ]
+                    },
+                    {
+                        type: 'Element',
+                        tagName: 'caption',
+                        attributes: { style: {} },
+                        children: [
+                            {
+                                type: 'Text',
+                                content: 'orem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'
                             }
                         ]
                     }
@@ -79,7 +91,7 @@ export const componentConfig = {
                         children: [
                             {
                                 type: 'Text',
-                                content: 'User Details'
+                                content: 'Login Form'
                             }
                         ]
                     },
@@ -97,21 +109,15 @@ export const componentConfig = {
                     {
                         type: 'Element',
                         tagName: 'input',
-                        attributes: { mb: "5", defaultValue: "John", placeholder: "First Name", height: 12, style: { backgroundColor: 'white' } },
-                        children: []
-                    },
-                    {
-                        type: 'Element',
-                        tagName: 'input',
                         attributes: {
-                            mb: "5", defaultValue: "Doe", placeholder: "Last Name", height: 12, style: { backgroundColor: 'white' }
+                            mb: "4", placeholder: "User Name", height: 12, style: { backgroundColor: 'white' }
                         },
                         children: []
                     },
                     {
                         type: 'Element',
                         tagName: 'input',
-                        attributes: { type: "password", defaultValue: "12345", height: 12, placeholder: "password", style: { backgroundColor: 'white' } },
+                        attributes: { type: "Password", height: 12, placeholder: "password", style: { backgroundColor: 'white' } },
                         children: []
                     },
                     {
