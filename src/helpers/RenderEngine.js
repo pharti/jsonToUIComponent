@@ -1,7 +1,14 @@
 import React from "react";
-import { componentConfig } from "../constants/componentConfig";
+import { ComponentToCommonTagsMap, ComponentToFontSizeMap, ComponentToFontStyleMap, ComponentToFontWeightMap } from "../constants/mapperConstants";
+import { cardGenerator } from "./compositeComponents/Card";
+import { buttonGenerator } from "./genericComponents/Button";
+import { captionGenerator } from "./genericComponents/Caption";
+import { containerGenerator } from "./genericComponents/Container";
+import { formGenerator } from "./genericComponents/Form";
+import { headingGenerator } from "./genericComponents/Heading";
+import { imageGenerator } from "./genericComponents/Image";
+import { subHeadingGenerator } from "./genericComponents/SubHeading";
 
-import { ComponentToFontStyleMap, ComponentToFontSizeMap, ComponentToFontWeightMap, ComponentToCommonTagsMap } from "../constants/mapperConstants";
 
 const generateAttributes = (config) => {
 
@@ -32,13 +39,10 @@ const generateAttributes = (config) => {
         attributes.href = config.href;
     };
     if (config.tagName === "img") {
-
-        // attributes.source = { source: config.attributes.source }
     };
-    console.log("config.attributes", attributes);
 
     //...TODO Add default component styles
-    attributes.style = config.attributes.style;
+    attributes.style = config?.attributes?.style;
     // console.log("attributes", attributes);
     return attributes;
 };
@@ -61,34 +65,88 @@ const generateElement = (config) => {
         }
 
     } catch (error) {
-        console.log('generateElement error', error)
+        console.log('Error: generateElement', error);
     }
 };
+
+
+const modifyConfig = (config) => {
+    console.log('config.type', config.type);
+    try {
+        let updatedConfig;
+        switch (config.type) {
+            case 'Form':
+                updatedConfig = formGenerator(config);
+                break;
+            case 'Button':
+                updatedConfig = buttonGenerator(config);
+                break;
+            case 'Heading':
+                updatedConfig = headingGenerator(config);
+                break;
+            case 'SubHeading':
+                updatedConfig = subHeadingGenerator(config);
+                break;
+            case 'Caption':
+                updatedConfig = captionGenerator(config);
+                break;
+
+            case 'Container':
+                updatedConfig = containerGenerator(config);
+                break;
+            case 'Image':
+                updatedConfig = imageGenerator(config);
+                break;
+            case 'Card':
+                updatedConfig = cardGenerator(config);
+                break;
+            default:
+                break;
+        }
+
+        return updatedConfig;
+    } catch (error) {
+        console.log('Error: modifyConfig', error);
+    }
+
+}
 
 const htmlElementCreator = (config) => {
     try {
         //... If type is any HTML Element or Text
-        if (typeof ComponentToCommonTagsMap[config.tagName] !== "undefined" && (config.type === "Element" || config.type === "Text")) {
+        if ((config.type === "Element" || config.type === "Text") && typeof ComponentToCommonTagsMap[config.tagName] !== "undefined") {
             return React.createElement(
-                ComponentToCommonTagsMap[config.tagName], // React component that we want to render
-                generateAttributes(config),
-                generateElement(config)
+                ComponentToCommonTagsMap[config.tagName],                       //... React component that we want to render
+                generateAttributes(config),                                     //... Attributes, styles, href, source etc
+                generateElement(config)                                         //... Child element goes here.
             );
         } else {
-            //... Create custom component base on config type
-            return React.createElement(
-                ComponentToCommonTagsMap[componentConfig[config.type].tagName], // React component that we want to render
-                generateAttributes(componentConfig[config.type]),
-                generateElement(componentConfig[config.type])
-            );
+            /**
+            Modify config based on users input and requirement. Below function
+            accepts the config, adds the props(For form, inputFields, overriding styles, button title etc),
+            returns a updated config to render.
+        */
+            const updatedConfig = modifyConfig(config);
+            if (updatedConfig) {
+                //... Create custom component based on type other than Element
+                return React.createElement(
+                    ComponentToCommonTagsMap[updatedConfig.tagName],                //... React component that we want to render
+                    generateAttributes(updatedConfig),                              //... Attributes, styles, href, source etc
+                    generateElement(updatedConfig)                                  //... Child element goes here.
+                );
+            }
         }
     } catch (error) {
-        console.log('error', error);
+        console.log('Error: htmlElementCreator', error);
     }
 };
 
 const renderEngine = (rootConfig) => {
-    return rootConfig.children.map(c => htmlElementCreator(c));
+    /**
+        rootConfig is an object which includes the information 
+        for creating a UI Element.
+    */
+    return rootConfig?.children?.map(c => htmlElementCreator(c));
 };
 
 export default renderEngine;
