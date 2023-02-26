@@ -35,6 +35,6 @@ Example element object
 ```
 
 ## References
-React [createElement](https://beta.reactjs.org/reference/react/createElement) Docs
-Html to Object [Parser](https://www.npmjs.com/package/htmlstr-parser) library
-Tutorial to [Adding React Native Web to an Existing Project](https://arry.medium.com/how-to-add-react-native-web-to-an-existing-react-native-project-eb98c952c12f)
+ - React [createElement](https://beta.reactjs.org/reference/react/createElement) Docs
+ - Html to Object [Parser](https://www.npmjs.com/package/htmlstr-parser) library
+ - Tutorial to [Adding React Native Web to an Existing Project](https://arry.medium.com/how-to-add-react-native-web-to-an-existing-react-native-project-eb98c952c12f)
