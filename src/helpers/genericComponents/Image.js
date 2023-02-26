@@ -1,15 +1,14 @@
 
 export const imageGenerator = (config) => {
-    console.log('config', config);
     const defaultImageConfig = {
         type: 'Element',
         tagName: 'image',
         attributes: {
             source: { uri: `${config.source}` },
-            alt: 'Alternate image text',
-            size: "xl",
-            resizeMode: "cover",
-            borderRadius: "4",
+            alt: `${config.altText ? config.altText : 'Alternate image text'}`,
+            size: `${config.size ? config.size : 'xl'}`,
+            resizeMode: `${config.resizeMode ? config.resizeMode : 'cover'}`,
+            borderRadius: `${config.borderRadius ? config.borderRadius : '4'}`,
             height: `${config.imageHeight ? config.imageHeight : 160}`,
             width: `${config.imageWidth ? config.imageWidth : 160}`
         },

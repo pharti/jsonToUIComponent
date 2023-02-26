@@ -4,16 +4,17 @@ export const buttonGenerator = (config) => {
         type: 'Element',
         tagName: 'button',
         attributes: {
-            size: 'lg',
+            size: `${config.size ? config.size : 'lg'}`,
             startIcon: '',
             endIcon: '',
             //... bgColor overrides the colorScheme
-            bgColor: '#06255B',
-            colorScheme: 'secondary',
-            isLoading: false,
-            isLoadingText: "Loading...",
-            variant: "solid",
-            isDisabled: false,
+            bgColor: `${config.bgColor ? config.bgColor : '#06255B'}`,
+            colorScheme: `${config.colorScheme ? config.colorScheme : 'secondary'}`,
+            isLoading: config.isLoading,
+            isLoadingText: `${config.isLoadingText ? config.isLoadingText : "Loading..."}`,
+            variant: `${config.variant ? config.variant : "solid"}`,
+            isDisabled: config.isDisabled,
+            onPress: () => config.onPressButton()
         },
         children: [{
             type: 'Element',

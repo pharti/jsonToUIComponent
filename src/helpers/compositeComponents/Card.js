@@ -13,12 +13,17 @@ export const cardGenerator = (config) => {
         attributes: {
             borderColor: "coolGray.200",
             overflow: "hidden",
+            //... Border Radius
             rounded: "lg",
             borderWidth: "1",
             backgroundColor: "white",
-            p: '4'
+            //... Padding
+            p: '4',
+            //... Breakpoints
+            w: ['100%', '100%', '48%', '48%', '32%', '24%'],
         },
         children: [
+            //... Generic Components, composed to create one Card component
             imageGenerator(config),
             dividerGenerator(config),
             headingGenerator(config),

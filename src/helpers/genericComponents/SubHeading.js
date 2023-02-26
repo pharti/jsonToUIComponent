@@ -4,8 +4,8 @@ export const subHeadingGenerator = (config) => {
         type: 'Element',
         tagName: 'subHeading',
         attributes: {
-            fontSize: 'md',
-            color: 'trueGray.700'
+            fontSize: `${config.fontSize ? config.fontSize : 'md'}`,
+            color: `${config.color ? config.color : 'trueGray.700'}`,
         },
         children: [{
             type: 'Text',

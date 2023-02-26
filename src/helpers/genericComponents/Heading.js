@@ -4,8 +4,8 @@ export const headingGenerator = (config) => {
         type: 'Element',
         tagName: 'heading',
         attributes: {
-            size: 'lg',
-            color: 'trueGray.900',
+            size: `${config.size ? config.size : 'lg'}`,
+            color: `${config.color ? config.color : 'trueGray.900'}`,
         },
         children: [{
             type: 'Text',

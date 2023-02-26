@@ -4,8 +4,8 @@ export const captionGenerator = (config) => {
         type: 'Element',
         tagName: 'caption',
         attributes: {
-            fontSize: 'xs',
-            color: 'trueGray.500',
+            fontSize: `${config.fontSize ? config.fontSize : 'xs'}`,
+            color: `${config.color ? config.color : 'trueGray.500'}`,
         },
         children: [{
             type: 'Text',

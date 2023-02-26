@@ -1,11 +1,13 @@
 import React from "react";
 import { ComponentToCommonTagsMap, ComponentToFontSizeMap, ComponentToFontStyleMap, ComponentToFontWeightMap } from "../constants/mapperConstants";
 import { cardGenerator } from "./compositeComponents/Card";
+import { avatarGenerator } from "./genericComponents/Avatar";
 import { buttonGenerator } from "./genericComponents/Button";
 import { captionGenerator } from "./genericComponents/Caption";
 import { containerGenerator } from "./genericComponents/Container";
 import { formGenerator } from "./genericComponents/Form";
 import { headingGenerator } from "./genericComponents/Heading";
+import { iconGenerator } from "./genericComponents/Icon";
 import { imageGenerator } from "./genericComponents/Image";
 import { subHeadingGenerator } from "./genericComponents/SubHeading";
 
@@ -38,12 +40,9 @@ const generateAttributes = (config) => {
     if (config.tagName === 'a') {
         attributes.href = config.href;
     };
-    if (config.tagName === "img") {
-    };
 
     //...TODO Add default component styles
     attributes.style = config?.attributes?.style;
-    // console.log("attributes", attributes);
     return attributes;
 };
 
@@ -71,7 +70,6 @@ const generateElement = (config) => {
 
 
 const modifyConfig = (config) => {
-    console.log('config.type', config.type);
     try {
         let updatedConfig;
         switch (config.type) {
@@ -90,13 +88,19 @@ const modifyConfig = (config) => {
             case 'Caption':
                 updatedConfig = captionGenerator(config);
                 break;
-
             case 'Container':
                 updatedConfig = containerGenerator(config);
                 break;
             case 'Image':
                 updatedConfig = imageGenerator(config);
                 break;
+            case 'Avatar':
+                updatedConfig = avatarGenerator(config);
+                break;
+            case 'Icon':
+                updatedConfig = iconGenerator(config);
+                break;
+
             case 'Card':
                 updatedConfig = cardGenerator(config);
                 break;

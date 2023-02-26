@@ -5,12 +5,12 @@ export const containerGenerator = (config) => {
         type: 'Element',
         tagName: 'container',
         attributes: {
-            borderColor: "coolGray.200",
+            borderColor: `${config.borderColor ? config.borderColor : "coolGray.200"}`,
             overflow: "hidden",
-            rounded: "lg",
-            borderWidth: "1",
-            backgroundColor: "white",
-            p: '4'
+            rounded: `${config.rounded ? config.rounded : "lg"}`,
+            borderWidth: `${config.borderWidth ? config.borderWidth : "1"}`,
+            backgroundColor: `${config.backgroundColor ? config.backgroundColor : "white"}`,
+            p: `${config.padding ? config.padding : '4'}`,
         },
     };
     return defaultContainerConfig;

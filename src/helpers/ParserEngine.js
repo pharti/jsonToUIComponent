@@ -5,6 +5,6 @@ export const parseHtml = async (html) => {
         const json = await htmlParser(html);
         return json;
     } catch (error) {
-        console.log('error', error);
+        console.log('Error: parseHtml', error);
     }
 };

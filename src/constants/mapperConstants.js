@@ -1,4 +1,4 @@
-import { Box, Link, Text, Image, FormControl, Input, Button, ArrowBackIcon, Heading } from 'native-base';
+import { Box, Link, Text, Image, FormControl, Input, Button, ArrowBackIcon, Heading, Avatar, Icon } from 'native-base';
 //... Maps native base component to common HTML tags
 export const ComponentToCommonTagsMap = {
     p: Text,
@@ -27,14 +27,18 @@ export const ComponentToCommonTagsMap = {
     form: FormControl,
     input: Input,
     icon: ArrowBackIcon,
+
     //... Generic Components
     heading: Heading,
     subHeading: Text,
     caption: Text,
     button: Button,
-    card: Box,
     image: Image,
-    container: Box
+    container: Box,
+    avatar: Avatar,
+    icon: Icon,
+    //... Composite Components
+    card: Box,
 };
 
 //... Maps native base font size standards to HTML tags
