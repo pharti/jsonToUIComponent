@@ -4,6 +4,7 @@ import * as React from 'react';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { parseHtml } from '../helpers/ParserEngine';
 import RenderEngine from '../helpers/RenderEngine';
+import cardRender from '../components/cardRender';
 
 const testHTML = `
     <div>
@@ -36,16 +37,68 @@ const testHTML = `
             <br>
             <kbd>CTRL</kbd>+<kbd>ALT</kbd>+<kbd>CANC</kbd>
         </p>
+
+        <div class="card">
+  <img
+    src="https://images.pexels.com/photos/2877188/pexels-photo-2877188.jpeg?auto=compress&amp;cs=tinysrgb&amp;dpr=1&amp;w=500"
+    class="card-img"
+  />
+  <div class="card-body">
+    <div class="card-title">This is a title</div>
+    <div class="card-subtitle">This is the subtitle</div>
+    <p class="card-text">
+      Some quick example text to build on the card title and make up the bulk of
+      the card's content.
+    </p>
+    <button class="btn btn-secondary">Click Me!</button>
+  </div>
+</div>
     </div>
     `;
 
 const config = parseHtml(testHTML);
-console.log('config', config);
+
+const CardConfig = {
+    component: "card",
+    children: [
+        {
+            component: "img",
+            src:
+                "https://images.pexels.com/photos/2877188/pexels-photo-2877188.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
+        },
+        {
+            component: "body",
+            children: [
+                {
+                    component: "title",
+                    children: "This is a title"
+                },
+                {
+                    component: "subtitle",
+                    children: "This is the subtitle"
+                },
+                {
+                    component: "text",
+                    children:
+                        "Some quick example text to build on the card title and make up the bulk of the card's content."
+                },
+                {
+                    component: "button",
+                    children: "Click Me!"
+                }
+            ]
+        }
+    ]
+};
+
 const HomeScreen = () => {
     return (
-        <SafeAreaView>
-            {config.map(c => RenderEngine(c))}
-        </SafeAreaView >
+        <div className="App">
+            {/* {config.map(c => RenderEngine(c))} */}
+            <div className="card-container">
+                {CardConfig.map(c => cardRender(c))}
+            </div>
+        </div>
     );
 };
 

@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 import DOMParser from 'react-native-html-parser';
 
 let config = [];
@@ -37,7 +38,6 @@ export const parseHtml = (html) => {
 
     const parser = new DOMParser.DOMParser();
     const parsed = parser.parseFromString(html, 'text/html');
-    console.log('parsed', parsed);
     //... If child note exists
     if (parsed?.hasChildNodes()) {
         generateRenderConfig(parsed.childNodes);
