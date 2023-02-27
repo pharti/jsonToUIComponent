@@ -21,18 +21,18 @@ const KeysToComponentMap = {
 };
 
 function renderer(config) {
-  if (typeof KeysToComponentMap[config.component] !== "undefined") {
+
+
     return React.createElement(
       KeysToComponentMap[config.component],
       {
-        src: config.src
+        src: config.src,
       },
       config.children &&
         (typeof config.children === "string"
           ? config.children
           : config.children.map(c => renderer(c)))
     );
-  }
 }
 
 export default renderer;
