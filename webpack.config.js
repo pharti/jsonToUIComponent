@@ -10,6 +10,7 @@ const { presets } = require(`${appDirectory}/babel.config.js`);
 const compileNodeModules = [
     // Add every react-native package that needs compiling
     // 'react-native-gesture-handler',
+    'react-native-vector-icons',
 ].map((moduleName) => path.resolve(appDirectory, `node_modules/${moduleName}`));
 
 const babelLoaderConfiguration = {
@@ -58,7 +59,7 @@ module.exports = {
     output: {
         path: path.resolve(appDirectory, 'dist'),
         publicPath: '/',
-        filename: 'rnw_blogpost.bundle.js',
+        filename: 'rnw.bundle.js',
     },
     resolve: {
         extensions: ['.web.tsx', '.web.ts', '.tsx', '.ts', '.web.js', '.js'],
@@ -75,7 +76,7 @@ module.exports = {
     },
     plugins: [
         new HtmlWebpackPlugin({
-            template: path.join(__dirname, 'index.html'),
+            template: path.join(__dirname, 'public/index.html'),
         }),
         new webpack.HotModuleReplacementPlugin(),
         new webpack.DefinePlugin({
