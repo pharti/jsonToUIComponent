@@ -7,7 +7,7 @@ import {
   CardBody,
   CardTitle,
   CardSubtitle,
-  Button
+  Button,
 } from "reactstrap";
 
 const KeysToComponentMap = {
