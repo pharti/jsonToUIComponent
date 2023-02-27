@@ -21,7 +21,7 @@ Pass a html or any custom defined config object to the Render Engine.
 
 Example element object
 ```sh
- {
+    {
         type: 'Element',
         tagName: 'tag name', //...Can be a HTML tag or a defined custom tag
         attributes: {},      //... styles or other tag attributes 
