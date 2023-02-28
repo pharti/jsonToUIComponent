@@ -1,46 +1,68 @@
 import React from "react";
 import { ComponentToCommonTagsMap, ComponentToFontSizeMap, ComponentToFontStyleMap, ComponentToFontWeightMap } from "../constants/mapperConstants";
-import { cardGenerator } from "./compositeComponents/Card";
-import { avatarGenerator } from "./genericComponents/Avatar";
-import { buttonGenerator } from "./genericComponents/Button";
-import { captionGenerator } from "./genericComponents/Caption";
-import { containerGenerator } from "./genericComponents/Container";
-import { formGenerator } from "./genericComponents/Form";
-import { headingGenerator } from "./genericComponents/Heading";
-import { iconGenerator } from "./genericComponents/Icon";
-import { imageGenerator } from "./genericComponents/Image";
-import { subHeadingGenerator } from "./genericComponents/SubHeading";
-
+import { configEngine } from "./ConfigEngine";
+import { getLinkConfig } from "./htmlMappedComponents/a";
+import { getArticleConfig } from "./htmlMappedComponents/article";
+import { getFigureConfig } from "./htmlMappedComponents/figure";
+import { getFooterConfig } from "./htmlMappedComponents/footer";
+import { getH2Config } from "./htmlMappedComponents/h2";
+import { getHeaderConfig } from "./htmlMappedComponents/header";
+import { getImgConfig } from "./htmlMappedComponents/img";
+import { getPConfig } from "./htmlMappedComponents/p";
+import { getSectionConfig } from "./htmlMappedComponents/section";
+import { getStrongConfig } from "./htmlMappedComponents/strong";
+import { getTimeConfig } from "./htmlMappedComponents/time";
 
 const generateAttributes = (config) => {
 
     //... create attributes mapping html tag and native base component styles.
     let attributes = { ...config.attributes };
-    if (config.tagName === 'p' || config.tagName === 'h1' || config.tagName === 'h2' || config.tagName === 'h3' || config.tagName === 'h4' || config.tagName === 'h5' || config.tagName === 'h6' || config.tagName === 'small') {
-        attributes.fontSize = ComponentToFontSizeMap[config.tagName];
-    };
-    if (config.tagName === 'i' || config.tagName === 'em') {
-        attributes.fontStyle = ComponentToFontStyleMap[config.tagName];
-    };
-    if (config.tagName === 'b') {
-        attributes.fontWeight = ComponentToFontWeightMap[config.tagName];
-    };
-    if (config.tagName === 'mark') {
-        attributes.highlight = true;
-    };
-    if (config.tagName === 'sub') {
-        attributes.sub = true;
-    };
-    if (config.tagName === 'u' || config.tagName === 'ins') {
-        attributes.underline = true;
-    };
-    if (config.tagName === 'strike' || config.tagName === 'del') {
-        attributes.strikeThrough = true;
-    };
-    if (config.tagName === 'a') {
-        attributes.href = config.href;
-    };
-
+    switch (config.tagName) {
+        // case ('p'):
+        case ('h1'):
+        // case ('h2'):
+        case ('h3'):
+        case ('h4'):
+        case ('h5'):
+        case ('h6'):
+        case ('small'):
+            attributes.fontSize = ComponentToFontSizeMap[config.tagName];
+            // attributes.bg = "green.400"
+            break;
+        case ('i'):
+        case ('em'):
+            attributes.fontStyle = ComponentToFontStyleMap[config.tagName];
+            break;
+        case ('b'):
+            attributes.fontWeight = ComponentToFontWeightMap[config.tagName];
+            break;
+        case ('mark'):
+            attributes.highlight = true;
+            break;
+        case ('sub'):
+            attributes.sub = true;
+            break;
+        case ('u'):
+        case ('ins'):
+            attributes.underline = true;
+            break;
+        case ('strike'):
+        case ('del'):
+            attributes.strikeThrough = true;
+            break;
+        // case ('a'):
+        //     attributes.href = config.href;
+        //     break;
+        // case ('img'):
+        //     attributes.resizeMode = "contain";
+        //     break;
+        // case ('section'):
+        // attributes.bg = "red.400"
+        // break;
+        default:
+            break;
+    }
+    // console.log('attributes', attributes);
     //...TODO Add default component styles
     attributes.style = config?.attributes?.style;
     return attributes;
@@ -56,7 +78,8 @@ const generateElement = (config) => {
             //...If config has a child element which must be an array. That is stored in childElement key
             return config.children.map(c => {
                 if (c.type === "Text") {
-                    return c.content;
+                    //... Remove any extra spaces from the string.
+                    return c.content.replace(/\s+/g, ' ').trim();
                 } else {
                     return htmlElementCreator(c)
                 };
@@ -69,68 +92,79 @@ const generateElement = (config) => {
 };
 
 
-const modifyConfig = (config) => {
-    try {
-        let updatedConfig;
-        switch (config.type) {
-            case 'Form':
-                updatedConfig = formGenerator(config);
-                break;
-            case 'Button':
-                updatedConfig = buttonGenerator(config);
-                break;
-            case 'Heading':
-                updatedConfig = headingGenerator(config);
-                break;
-            case 'SubHeading':
-                updatedConfig = subHeadingGenerator(config);
-                break;
-            case 'Caption':
-                updatedConfig = captionGenerator(config);
-                break;
-            case 'Container':
-                updatedConfig = containerGenerator(config);
-                break;
-            case 'Image':
-                updatedConfig = imageGenerator(config);
-                break;
-            case 'Avatar':
-                updatedConfig = avatarGenerator(config);
-                break;
-            case 'Icon':
-                updatedConfig = iconGenerator(config);
-                break;
-
-            case 'Card':
-                updatedConfig = cardGenerator(config);
-                break;
-            default:
-                break;
-        }
-
-        return updatedConfig;
-    } catch (error) {
-        console.log('Error: modifyConfig', error);
-    }
-
-}
-
 const htmlElementCreator = (config) => {
+    let c = config;
     try {
         //... If type is any HTML Element or Text
-        if ((config.type === "Element" || config.type === "Text") && typeof ComponentToCommonTagsMap[config.tagName] !== "undefined") {
+        if ((c.type === "Element" || c.type === "Text") && typeof ComponentToCommonTagsMap[c.tagName] !== "undefined") {
+            if (c.tagName === 'h2') {
+                //... get header c
+                // console.log('c', c);
+                c = getH2Config(config);
+            }
+            if (c.tagName === 'p') {
+                //... get header c
+                // console.log('c', c);
+                c = getPConfig(config);
+            }
+            if (c.tagName === 'a') {
+                //... get header c
+                // console.log('c', c);
+                c = getLinkConfig(config);
+            }
+            if (c.tagName === 'section') {
+                //... get header c
+                // console.log('c', c);
+                c = getSectionConfig(config);
+            }
+            if (c.tagName === 'strong') {
+                //... get header c
+                // console.log('c', c);
+                c = getStrongConfig(config);
+            }
+            if (c.tagName === 'footer') {
+                //... get header c
+                // console.log('c', c);
+                c = getFooterConfig(config);
+            }
+            if (c.tagName === 'time') {
+                //... get header c
+                // console.log('c', c);
+                c = getTimeConfig(config);
+                console.log("ccc", c);
+            }
+            if (c.tagName === 'figure') {
+                //... get header c
+                // console.log('c', c);
+                c = getFigureConfig(config);
+            }
+            if (c.tagName === 'img') {
+                //... get header c
+                // console.log('c', c);
+                c = getImgConfig(config);
+            }
+            if (c.tagName === 'article') {
+                //... get header c
+                // console.log('c', c);
+                c = getArticleConfig(config);
+            }
+            if (c.tagName === 'header') {
+                //... get header c
+                // console.log('c', c);
+                c = getHeaderConfig(config);
+            }
             return React.createElement(
-                ComponentToCommonTagsMap[config.tagName],                       //... React component that we want to render
-                generateAttributes(config),                                     //... Attributes, styles, href, source etc
-                generateElement(config)                                         //... Child element goes here.
+                ComponentToCommonTagsMap[c.tagName],                       //... React component that we want to render
+                generateAttributes(c),                                     //... Attributes, styles, href, source etc
+                generateElement(c)                                         //... Child element goes here.
             );
         } else {
             /**
-            Modify config based on users input and requirement. Below function
-            accepts the config, adds the props(For form, inputFields, overriding styles, button title etc),
-            returns a updated config to render.
+            Modify c based on users input and requirement. Below function
+            accepts the c, adds the props(For form, inputFields, overriding styles, button title etc),
+            returns a updated c to render.
         */
-            const updatedConfig = modifyConfig(config);
+            const updatedConfig = configEngine(c);
             if (updatedConfig) {
                 //... Create custom component based on type other than Element
                 return React.createElement(
