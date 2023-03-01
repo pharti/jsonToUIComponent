@@ -40,9 +40,10 @@ function App(): JSX.Element {
         },
       },
       Text: {
-        baseStyle: {},
+        baseStyle: {
+        },
         defaultProps: {
-          size: 'lg'
+          size: 'lg',
         },
         sizes: {
           xl: {

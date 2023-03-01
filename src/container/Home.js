@@ -1,20 +1,75 @@
 /* eslint-disable prettier/prettier */
+import { Text } from 'native-base';
 import * as React from 'react';
 import { ScrollView } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { parseHtml } from '../helpers/ParserEngine';
 import RenderEngine from '../helpers/RenderEngine';
+import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 
-const HomeScreen = () => {
-    const testHTML = ` <div id="wrapper">
+const testHTML = `<div class="keyboard-quick-nav">
+            <div class="keyboard-quick-nav--wrapper css-10usygl-Wrapper e453bx70">
+                <div role="navigation" class="keyboard-quick-nav--list css-vn8ydf-Menu e453bx71"><a
+                        class="keyboard-quick-nav--item text-color css-83xe2g-Item e453bx72" tabindex="0"
+                        aria-label="Jump to content" href="#content">Content</a><a
+                        class="keyboard-quick-nav--item text-color css-83xe2g-Item e453bx72" tabindex="0"
+                        aria-label="Jump to header" href="#header">Header</a><a
+                        class="keyboard-quick-nav--item text-color css-83xe2g-Item e453bx72" tabindex="0"
+                        aria-label="Jump to navigation" href="#sidebar">Navigation</a></div>
+            </div>
+        </div>
+        <div class="app-header" id="header" role="banner">
+            <div class="page-header-wrapper">
+                <header class="header-container with-logo css-xzwd3e-HeaderContainer e8ie319">
+                    <div class="header-body css-128vhw6-HeaderBody e8ie318">
+                        <div class="header-left-container css-f9webr-LeftContainer e8ie316"><a
+                                href="/content/page/5a0f63d6e4b00a823dba01e7" title="Homepage" tabindex="0"><img
+                                    class="header-logo css-731a9x-LogoImage e8ie310"
+                                    src="https://cdn-us1.staffbase.com/production/image/upload/c_crop,x_0,y_0,w_1059,h_2388,/c_limit,h_2000,w_2000/c_limit,w_120,h_40/v1504028384/cbuoxYZ1dv6v5lGOIvq8eaGkTJuzM5tvSLGfSpuPRbxon6FOmtMpYnebTHQVRcYi0i15kdiiiKPVljpdBKiGm86zm4ANQ1yQOvWYAQBJzHwR36iLgfO4eww5sQM27br0KK5DJctegALwlpiaZcsUWyNVKRHS00ZtyZLwxEs1zA5wH3bwpDC8QyF3ZbJbISyB/u59a5a4c1e4b027edc3d03972/NBA.png"
+                                    aria-hidden="true"></a></div><span
+                            class="header-title css-vv85i7-Title e8ie317">Article: Philadelphia 76ers, Boston Celtics to
+                            play regular-season game in London</span>
+                        <div class="header-right-container actions css-iw1pvc-RightContainer e8ie315"></div>
+                    </div>
+                </header>
+            </div>
+            <menu class="with-search with-launchpad" id="menu">
+                <div class="search-container false" data-menu-item-id="search">
+                    <form role="search" class="ejn0ys0 css-1wu67px-StyledSearch-AppSearch e1bkqwbb3" height="32"
+                        action=".">
+                        <span height="32" class="we-icon e1bkqwbb0 css-7uebhy-IconStyled-SearchIconStyled e19il6tt0"
+                            aria-label="Search icon">S</span><input type="search" name="search"
+                            placeholder="Search NBA Team Tech..." aria-label="Search input" autocomplete="off"
+                            tabindex="0" class="css-5h6a4r-Input eplbt0y0" value="">
+                    </form>
+                </div>
+            </menu>
+        </div>
+        <div id="wrapper">
             <div id="sidebar" role="navigation" aria-live="polite">
                 <h3>Navigation</h3>
-                <div class="plugin-list">
-                    <a class="item" tabindex="0" data-menu-item-id="5a0f63d6e4b00a823dba01e7"
+                <div class="plugin-list"><a class="item" tabindex="0" data-menu-item-id="5a0f63d6e4b00a823dba01e7"
                         data-plugin-type="page" data-page-id="item-5a0f63d6e4b00a823dba01e7"
                         data-installation-id="5a0f63d6e4b00a823dba01e6" href="/content/page/5a0f63d6e4b00a823dba01e7"
                         aria-label="About the NBA"><span aria-hidden="true" class="we-icon we-icon-n">n</span>About the
-                        NBA</a>
+                        NBA</a><a class="item" tabindex="0" data-menu-item-id="59a07e9ce4b048f22931ce70"
+                        data-plugin-type="news" data-page-id="news-59a07e9ce4b048f22931ce70"
+                        href="/content/news/59a07e9ce4b048f22931ce70" aria-label="News"><span aria-hidden="true"
+                            class="we-icon we-icon-N">N</span>News</a><a class="item" tabindex="0"
+                        data-menu-item-id="5a0f6445e4b00a823dba01f5" data-plugin-type="news"
+                        data-page-id="news-5a0f6445e4b00a823dba01f5" href="/content/news/5a0f6445e4b00a823dba01f5"
+                        aria-label="NBA International "><span aria-hidden="true" class="we-icon we-icon-N">N</span>NBA
+                        International </a><a class="item" tabindex="0" data-menu-item-id="5a0f6472e4b00a823dba01f8"
+                        data-plugin-type="page" data-page-id="item-5a0f6472e4b00a823dba01f8"
+                        data-installation-id="5a0f6472e4b00a823dba01f7" href="/content/page/5a0f6472e4b00a823dba01f8"
+                        aria-label="NBA Cares"><span aria-hidden="true" class="we-icon we-icon-n">n</span>NBA
+                        Cares</a><a class="item last-of-category" tabindex="0"
+                        data-menu-item-id="5a0f64dfe4b0611768e7e8f6" data-plugin-type="page"
+                        data-page-id="item-5a0f64dfe4b0611768e7e8f6" data-installation-id="5a0f64dfe4b0611768e7e8f5"
+                        href="/content/page/5a0f64dfe4b0611768e7e8f6" aria-label="NBA Green"><span aria-hidden="true"
+                            class="we-icon we-icon-n">n</span>NBA Green</a><a class="item last-of-category" tabindex="0"
+                        data-menu-item-id="about" data-page-id="about" href="/about" aria-label="About"><span
+                            aria-hidden="true" class="we-icon we-icon-i">i</span>About</a>
                     <div class="public-login-hint">
                         <p class="description">Eligible users of NBA Team Tech get access to additional features after
                             sign
@@ -57,11 +112,6 @@ const HomeScreen = () => {
                                     </figure>
                                 </header>
                                 <section class="rich-text news-detail-post-content css-1vvuvzw-StyledRichText edwugxd0">
-                                    <p><strong>LONDON</strong><span>&nbsp;</span>--&nbsp;The National Basketball
-                                        Association
-                                        (NBA) and Anschutz Entertainment Group (AEG) announced today that the NBA London
-                                        Game 2018 will feature the Philadelphia 76ers and Boston Celtics playing a
-                                        regular-season game at The O2 on Thursday, Jan. 11. &nbsp;</p>
                                     <p>Tickets for the game will go on sale in October 2017.&nbsp; Fans can register
                                         their
                                         interest for tickets to the NBA London Game 2018 and gain access to bespoke
@@ -130,62 +180,77 @@ const HomeScreen = () => {
                 </div>
             </div>
         </div>`;
-    const testConfig = {
-        children: [
-            // {
-            //     type: 'Heading',
-            // },
-            // {
-            //     type: 'SubHeading',
-            // },
-            // {
-            //     type: 'Caption',
-            // },
-            // {
-            //     type: 'Container',
-            // },
-            // {
-            //     type: 'Image',
-            //     source: 'https://wallpaperaccess.com/full/317501.jpg'
-            // },
-            {
-                type: 'Card',
-                source: 'https://wallpaperaccess.com/full/317501.jpg',
-                imageWidth: '100%',
-                headingText: "The Garden City",
-                captionText: "The Silicon Valley of India.",
-                subHeadingText: "Bengaluru (also called Bangalore) is the center of India's high-tech industry. The city is also known for its parks and nightlife.",
-                paddingVertical: '2',
-                buttonText: 'Explore',
-                onPressButton: () => alert('Button Pressed')
-            },
-            // {
-            //     type: 'Avatar',
-            //     source: 'https://bit.ly/broken-link',
-            // },
-            // {
-            //     type: 'Icon',
-            //     name: "web",
-            //     as: Icon
-            // },
-        ]
-    };
+let htmlConfig;
 
-    const [HTMLConfigObject, setHTMLConfigObject] = React.useState({});
+parseHtml(testHTML).then((result) => {
+    htmlConfig = result;
+});
 
-    const getConfig = async () => {
-        let configObject = await parseHtml(testHTML);
-        setHTMLConfigObject(configObject);
-    };
+const testConfig = {
+    children: [
+        // {
+        //     type: 'heading',
+        // },
+        // {
+        //     type: 'subHeading',
+        // },
+        // {
+        //     type: 'caption',
+        // },
+        // {
+        //     type: 'container',
+        // },
+        // {
+        //     type: 'image',
+        //     source: 'https://wallpaperaccess.com/full/317501.jpg'
+        // },
+        {
+            type: "div",
+            id: "fancy-css-id-name",
+            class: "fancy-css-class-name another-class-23",
+            attributes: { "aria": "blabla", "data-id": "blabla" },
+            children: [
+                {
+                    type: "h1",
+                    id: "fancy-css-id-name",
+                    class: "fancy-css-class-name smooth-image-class-13",
+                    value: "welcome Team One by NBA",
+                    link: "http://clickable-url",
+                    attributes: {
+                        aria: "blabla",
+                        "data-id": "blabla",
+                        bold: true,
+                    },
+                    styles: {
+                        color: "red",
+                        fontSize: 12
+                    }
+                }
+            ]
+        },
+        // {
+        //     type: 'avatar',
+        //     source: 'https://bit.ly/broken-link',
+        // },
+        // {
+        //     type: 'icon',
+        //     name: "web",
+        //     as: Icon
+        // },
+    ]
+};
 
-    React.useEffect(() => {
-        getConfig();
-    }, [testHTML])
+const HomeScreen = () => {
+
 
     return (
         <SafeAreaView style={{ flex: 1 }}>
             <ScrollView contentContainerStyle={{ padding: 16 }}>
-                {HTMLConfigObject && RenderEngine(HTMLConfigObject)}
+                {/* <Text fontSize='lg' style={{
+                    color: 'red',
+                    fontSize: 23
+                }}>Hello</Text> */}
+                {testConfig && RenderEngine(testConfig)}
             </ScrollView>
         </SafeAreaView >
     );

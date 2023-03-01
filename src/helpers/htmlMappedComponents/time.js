@@ -1,7 +1,27 @@
 import { ComponentToFontSizeMap } from "../../constants/mapperConstants";
 
 export const getTimeConfig = (config) => {
-    let clone = { ...config };
-    clone.attributes.fontSize = ComponentToFontSizeMap[config.tagName];
-    return clone;
+    //... config parameter is used when the default configuration are needed to override 
+    let defaultTimeConfig = {
+        type: 'Element',
+        tagName: 'time',
+        attributes: {
+            fontSize: ComponentToFontSizeMap[config.tagName]
+        },
+    };
+
+    Object.keys(config).forEach((key, index) => {
+        //... For attributes merge the config and default config attributes
+        if (key === 'attributes') {
+            defaultTimeConfig[key] = { ...defaultTimeConfig[key], ...config[key] };
+        } else if (key === 'styles') {
+            //... native base accepts style prop for styling
+            //... Note styles used double braces.. But object doesn't accept double braces as value.
+            defaultTimeConfig.style = { ...config.styles }
+        } else {
+            defaultTimeConfig[key] = config[key];
+        }
+    });
+
+    return defaultTimeConfig;
 }

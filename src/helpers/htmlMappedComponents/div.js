@@ -1,11 +1,9 @@
-export const getLinkConfig = (config) => {
+export const getDivConfig = (config) => {
     //... config parameter is used when the default configuration are needed to override 
     let defaultDivConfig = {
         type: 'Element',
-        tagName: 'a',
-        attributes: {
-            href: `${config.href ? config.href : "#"}`,
-        },
+        tagName: 'div',
+        attributes: {},
     };
 
     Object.keys(config).forEach((key, index) => {

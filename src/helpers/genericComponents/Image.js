@@ -13,7 +13,6 @@ export const imageGenerator = (config) => {
             width: `${config.imageWidth ? config.imageWidth : 160}`
         },
     };
-
     //... config parameter is used when the default configuration are needed to override 
     return defaultImageConfig;
 }

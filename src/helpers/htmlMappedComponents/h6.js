@@ -1,24 +1,28 @@
-export const getHeaderConfig = (config) => {
+import { ComponentToFontSizeMap } from "../../constants/mapperConstants";
+
+export const getH6Config = (config) => {
     //... config parameter is used when the default configuration are needed to override 
-    let defaultHeaderConfig = {
+    let defaultH6Config = {
         type: 'Element',
-        tagName: 'header',
+        tagName: 'h6',
         attributes: {
+            fontSize: ComponentToFontSizeMap['h6'],
         },
     };
+
 
     Object.keys(config).forEach((key, index) => {
         //... For attributes merge the config and default config attributes
         if (key === 'attributes') {
-            defaultHeaderConfig[key] = { ...defaultHeaderConfig[key], ...config[key] };
+            defaultH6Config[key] = { ...defaultH6Config[key], ...config[key] };
         } else if (key === 'styles') {
             //... native base accepts style prop for styling
             //... Note styles used double braces.. But object doesn't accept double braces as value.
-            defaultHeaderConfig.style = { ...config.styles }
+            defaultH6Config.style = { ...config.styles }
         } else {
-            defaultHeaderConfig[key] = config[key];
+            defaultH6Config[key] = config[key];
         }
     });
 
-    return defaultHeaderConfig;
+    return defaultH6Config;
 }
