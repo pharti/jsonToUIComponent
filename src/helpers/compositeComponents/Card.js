@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 import { buttonGenerator } from "../genericComponents/Button";
 import { captionGenerator } from "../genericComponents/Caption";
 import { dividerGenerator } from "../genericComponents/Divider";

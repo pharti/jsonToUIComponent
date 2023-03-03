@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 export const formGenerator = (config) => {
     const defaultFormConfig = {
         type: 'Element',

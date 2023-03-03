@@ -25,17 +25,17 @@ const HomeScreen = () => {
             //     type: 'Image',
             //     source: 'https://wallpaperaccess.com/full/317501.jpg'
             // },
-            {
-                type: 'Card',
-                source: 'https://wallpaperaccess.com/full/317501.jpg',
-                imageWidth: '100%',
-                headingText: "The Garden City",
-                captionText: "The Silicon Valley of India.",
-                subHeadingText: "Bengaluru (also called Bangalore) is the center of India's high-tech industry. The city is also known for its parks and nightlife.",
-                paddingVertical: '2',
-                buttonText: 'Explore',
-                onPressButton: () => alert('Button Pressed')
-            },
+            // {
+            //     type: 'Card',
+            //     source: 'https://wallpaperaccess.com/full/317501.jpg',
+            //     imageWidth: '100%',
+            //     headingText: "The Garden City",
+            //     captionText: "The Silicon Valley of India.",
+            //     subHeadingText: "Bengaluru (also called Bangalore) is the center of India's high-tech industry. The city is also known for its parks and nightlife.",
+            //     paddingVertical: '2',
+            //     buttonText: 'Explore',
+            //     onPressButton: () => alert('Button Pressed')
+            // },
             // {
             //     type: 'Avatar',
             //     source: 'https://bit.ly/broken-link',
@@ -45,6 +45,13 @@ const HomeScreen = () => {
             //     name: "web",
             //     as: Icon
             // },
+            {
+                type: 'Stack',
+                paddingVertical: '5',
+                margingVertical: 1,
+                onTextChange: (text) => console.log('text ==> ', text),
+                onRadioButtonChanged: (value) => console.log('value ==> ', value),
+            },
         ]
     };
 

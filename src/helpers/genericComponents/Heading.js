@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 export const headingGenerator = (config) => {
     //... config parameter is used when the default configuration are needed to override 
     const defaultTextConfig = {

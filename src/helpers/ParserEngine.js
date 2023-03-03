@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 import htmlParser from 'htmlstr-parser';
 
 export const parseHtml = async (html) => {

@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 //... Container is a basic content wrapper
 export const containerGenerator = (config) => {
     //... config parameter is used when the default configuration are needed to override 

@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 import React from "react";
 import { ComponentToCommonTagsMap, ComponentToFontSizeMap, ComponentToFontStyleMap, ComponentToFontWeightMap } from "../constants/mapperConstants";
 import { cardGenerator } from "./compositeComponents/Card";
@@ -9,6 +10,8 @@ import { formGenerator } from "./genericComponents/Form";
 import { headingGenerator } from "./genericComponents/Heading";
 import { iconGenerator } from "./genericComponents/Icon";
 import { imageGenerator } from "./genericComponents/Image";
+import { inputTextGenerator } from "./genericComponents/InputText";
+import { stackGenerator } from "./genericComponents/StackContainer";
 import { subHeadingGenerator } from "./genericComponents/SubHeading";
 
 
@@ -43,6 +46,9 @@ const generateAttributes = (config) => {
 
     //...TODO Add default component styles
     attributes.style = config?.attributes?.style;
+
+    console.log('attributes ===> ', attributes);
+
     return attributes;
 };
 
@@ -104,6 +110,15 @@ const modifyConfig = (config) => {
             case 'Card':
                 updatedConfig = cardGenerator(config);
                 break;
+            case 'inputText':
+                updatedConfig = inputTextGenerator(config);
+                break;
+            case 'Stack':
+                updatedConfig = stackGenerator(config);
+                break;
+            // case 'Checkbox':
+            //     updatedConfig = checkboxGenerator(config);
+            //     break;
             default:
                 break;
         }
@@ -130,7 +145,10 @@ const htmlElementCreator = (config) => {
             accepts the config, adds the props(For form, inputFields, overriding styles, button title etc),
             returns a updated config to render.
         */
+
+            console.log("Element")
             const updatedConfig = modifyConfig(config);
+
             if (updatedConfig) {
                 //... Create custom component based on type other than Element
                 return React.createElement(

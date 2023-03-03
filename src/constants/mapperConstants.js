@@ -1,4 +1,5 @@
-import { Box, Link, Text, Image, FormControl, Input, Button, ArrowBackIcon, Heading, Avatar, Icon } from 'native-base';
+/* eslint-disable prettier/prettier */
+import { Box, Link, Text, Image, FormControl, Input, Button, Radio, ArrowBackIcon, Heading, Avatar, Icon, Checkbox,Stack, VStack, HStack } from 'native-base';
 //... Maps native base component to common HTML tags
 export const ComponentToCommonTagsMap = {
     p: Text,
@@ -25,8 +26,17 @@ export const ComponentToCommonTagsMap = {
     div: Box,
     img: Image,
     form: FormControl,
-    input: Input,
+    inputText: Input,
     icon: ArrowBackIcon,
+    Checkbox:Checkbox,
+    RadioButton:Radio,
+    RadioGroup:Radio.Group,
+    CheckboxGroup:Checkbox.Group,
+
+    //...Stack compoments
+    HStack:HStack,
+    VStack:VStack,
+    Stack:Stack,
 
     //... Generic Components
     heading: Heading,
@@ -36,7 +46,7 @@ export const ComponentToCommonTagsMap = {
     image: Image,
     container: Box,
     avatar: Avatar,
-    icon: Icon,
+    icons: Icon,
     //... Composite Components
     card: Box,
 };

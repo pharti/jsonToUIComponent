@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 export const subHeadingGenerator = (config) => {
     //... config parameter is used when the default configuration are needed to override 
     const defaultSubHeadingConfig = {

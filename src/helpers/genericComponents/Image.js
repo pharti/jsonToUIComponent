@@ -1,4 +1,4 @@
-
+/* eslint-disable prettier/prettier */
 export const imageGenerator = (config) => {
     const defaultImageConfig = {
         type: 'Element',

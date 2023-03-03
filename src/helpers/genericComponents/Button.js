@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 export const buttonGenerator = (config) => {
     //... config parameter is used when the default configuration are needed to override 
     const defaultButtonConfig = {
@@ -24,9 +25,9 @@ export const buttonGenerator = (config) => {
                 {
                     type: 'Text',
                     content: `${config.buttonText ? config.buttonText : 'Submit'}`
-                }
-            ]
-        }]
+                },
+            ],
+        }],
     };
     return defaultButtonConfig;
 }
