@@ -189,89 +189,105 @@ parseHtml(testHTML).then((result) => {
 const testConfig = {
     children: [
         {
-            type: "div",
-            id: "fancy-css-id-name",
-            class: "fancy-css-class-name another-class-23",
-            attributes: { "aria": "blabla", "data-id": "blabla", },
-            styles: {
-                flex: 1
-            },
-            children: [
-                {
-                    type: "div",
-                    id: "fancy-css-id-name",
-                    class: "fancy-css-class-name another-class-23",
-                    attributes: { "aria": "blabla", "data-id": "blabla", },
-                    styles: {
-                        flex: 0.2,
-                        flexDirection: 'row',
-                        backgroundColor: 'blue.800',
-                        alignItems: 'center',
-                        paddingVertical: 6,
-                        borderBottomRadius: 8
-                    },
-                    children: [
-                        {
-                            type: "div",
-                            attributes: {},
-                            styles: {
-                                flex: 0.2,
-                                justifyContent: 'center',
-                                alignItems: 'center',
-                            },
-                            children: [
-                                {
-                                    type: 'icon',
-                                    color: 'white',
-                                    attributes: {},
-                                    styles: { color: 'white' },
-                                    name: "keyboard-backspace",
-                                    as: Icon
-                                },
-
-                            ]
-                        },
-                        {
-                            type: "div",
-                            attributes: {},
-                            styles: {
-                                flex: 0.6,
-                                alignItems: 'center',
-                            },
-                            children: [
-                                {
-                                    type: 'p',
-                                    value: 'Dashboard',
-                                    attributes: {
-                                    },
-                                    styles: {
-                                        color: 'white'
-                                    }
-                                }
-                            ]
-                        },
-                        {
-                            type: "div",
-                            attributes: {},
-                            styles: {
-                                flex: 0.2,
-                                justifyContent: 'center',
-                                alignItems: 'center',
-                            },
-                            children: [
-                                {
-                                    type: 'icon',
-                                    color: 'white',
-                                    name: "bell-badge-outline",
-                                    as: Icon
-                                }
-                            ]
-
-                        },
-                    ]
-                },
-            ]
+            type: 'input',
+            onTextChange: (text) => console.log('text ==> ', text),
         },
+        // {
+        //     type: 'checkbox',
+        //     onChecked: (value) => console.log('check value ==> ', value),
+        // }
+        // {
+        //     type: 'stack',
+        //     paddingVertical: '5',
+        //     margingVertical: 1,
+        //     onTextChange: (text) => console.log('text ==> ', text),
+        //     onRadioButtonChanged: (value) => console.log('value ==> ', value),
+        //     onChecked: (value) => console.log('check value ==> ', value),
+        // },
+        // {
+        //     type: "div",
+        //     id: "fancy-css-id-name",
+        //     class: "fancy-css-class-name another-class-23",
+        //     attributes: { "aria": "blabla", "data-id": "blabla", },
+        //     styles: {
+        //         flex: 1
+        //     },
+        //     children: [
+        //         {
+        //             type: "div",
+        //             id: "fancy-css-id-name",
+        //             class: "fancy-css-class-name another-class-23",
+        //             attributes: { "aria": "blabla", "data-id": "blabla", },
+        //             styles: {
+        //                 flex: 0.2,
+        //                 flexDirection: 'row',
+        //                 backgroundColor: 'blue.800',
+        //                 alignItems: 'center',
+        //                 paddingVertical: 6,
+        //                 borderBottomRadius: 8
+        //             },
+        //             children: [
+        //                 {
+        //                     type: "div",
+        //                     attributes: {},
+        //                     styles: {
+        //                         flex: 0.2,
+        //                         justifyContent: 'center',
+        //                         alignItems: 'center',
+        //                     },
+        //                     children: [
+        //                         {
+        //                             type: 'icon',
+        //                             color: 'white',
+        //                             attributes: {},
+        //                             styles: { color: 'white' },
+        //                             name: "keyboard-backspace",
+        //                             as: Icon
+        //                         },
+
+        //                     ]
+        //                 },
+        //                 {
+        //                     type: "div",
+        //                     attributes: {},
+        //                     styles: {
+        //                         flex: 0.6,
+        //                         alignItems: 'center',
+        //                     },
+        //                     children: [
+        //                         {
+        //                             type: 'p',
+        //                             value: 'Dashboard',
+        //                             attributes: {
+        //                             },
+        //                             styles: {
+        //                                 color: 'white'
+        //                             }
+        //                         }
+        //                     ]
+        //                 },
+        //                 {
+        //                     type: "div",
+        //                     attributes: {},
+        //                     styles: {
+        //                         flex: 0.2,
+        //                         justifyContent: 'center',
+        //                         alignItems: 'center',
+        //                     },
+        //                     children: [
+        //                         {
+        //                             type: 'icon',
+        //                             color: 'white',
+        //                             name: "bell-badge-outline",
+        //                             as: Icon
+        //                         }
+        //                     ]
+
+        //                 },
+        //             ]
+        //         },
+        //     ]
+        // },
     ]
 };
 

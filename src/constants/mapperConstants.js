@@ -1,4 +1,4 @@
-import { Box, Link, Text, Modal, Image, FormControl, Input, Button, ArrowBackIcon, Heading, Avatar, Icon } from 'native-base';
+import { Box, Link, Text, Modal, HStack, VStack, Stack, Image, FormControl, Input, Button, ArrowBackIcon, Heading, Avatar, Icon } from 'native-base';
 //... Maps native base component to common HTML tags
 export const ComponentToCommonTagsMap = {
     //... Page tags
@@ -112,6 +112,10 @@ export const ComponentToCommonTagsMap = {
     avatar: Avatar,
     icon: Icon,
     modal: Modal,
+    //...Stack compoments
+    HStack: HStack,
+    VStack: VStack,
+    stack: Stack,
     //... Composite Components
     card: Box,
 };

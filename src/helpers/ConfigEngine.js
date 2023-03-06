@@ -6,10 +6,12 @@ import { headingGenerator } from "./genericComponents/Heading";
 import { iconGenerator } from "./genericComponents/Icon";
 import { imageGenerator } from "./genericComponents/Image";
 import { modalGenerator } from "./genericComponents/Modal";
+import { stackGenerator } from "./genericComponents/StackContainer";
 import { subHeadingGenerator } from "./genericComponents/SubHeading";
 
 import { getLinkConfig } from "./htmlMappedComponents/a";
 import { getArticleConfig } from "./htmlMappedComponents/article";
+import { getCheckBoxConfig } from "./htmlMappedComponents/checkbox";
 import { getDivConfig } from "./htmlMappedComponents/div";
 import { getFigureConfig } from "./htmlMappedComponents/figure";
 import { getFooterConfig } from "./htmlMappedComponents/footer";
@@ -22,6 +24,7 @@ import { getH6Config } from "./htmlMappedComponents/h6";
 import { getHeaderConfig } from "./htmlMappedComponents/header";
 import { getIconConfig } from "./htmlMappedComponents/icon";
 import { getImgConfig } from "./htmlMappedComponents/img";
+import { getInputConfig } from "./htmlMappedComponents/input";
 import { getPConfig } from "./htmlMappedComponents/p";
 import { getSectionConfig } from "./htmlMappedComponents/section";
 import { getSpanConfig } from "./htmlMappedComponents/span";
@@ -29,6 +32,7 @@ import { getStrongConfig } from "./htmlMappedComponents/strong";
 import { getTimeConfig } from "./htmlMappedComponents/time";
 
 export const configEngine = (config) => {
+    console.log("config--->", config);
     try {
         let updatedConfig;
         //... parser gives tagName and User config type.
@@ -68,7 +72,9 @@ export const configEngine = (config) => {
             case 'modal':
                 updatedConfig = modalGenerator(config);
                 break;
-
+            case 'stack':
+                updatedConfig = stackGenerator(config);
+                break;
             case 'div':
                 updatedConfig = getDivConfig(config);
                 break;
@@ -138,6 +144,12 @@ export const configEngine = (config) => {
                 break;
             case 'span':
                 updatedConfig = getSpanConfig(config);
+                break;
+            case 'input':
+                updatedConfig = getInputConfig(config);
+                break;
+            case 'checkbox':
+                updatedConfig = getCheckBoxConfig(config);
                 break;
             default:
                 console.log("***Default**")

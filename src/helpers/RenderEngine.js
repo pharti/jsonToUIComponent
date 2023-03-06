@@ -1,7 +1,6 @@
 import React from "react";
 import { ComponentToCommonTagsMap } from "../constants/mapperConstants";
 import { configEngine } from "./ConfigEngine";
-import { parseHtml } from "./ParserEngine";
 
 const generateElement = (config) => {
     try {
