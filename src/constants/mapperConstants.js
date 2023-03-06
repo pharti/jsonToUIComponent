@@ -32,6 +32,7 @@ export const ComponentToCommonTagsMap = {
     RadioButton:Radio,
     RadioGroup:Radio.Group,
     CheckboxGroup:Checkbox.Group,
+    Link:Link,
 
     //...Stack compoments
     HStack:HStack,

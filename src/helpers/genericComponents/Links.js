@@ -3,7 +3,7 @@ export const linkGenerator = (config) => {
     //... config parameter is used when the default configuration are needed to override 
     const defaultLinkConfig = {
         type: 'Element',
-        tagName: 'a',
+        tagName: 'Link',
         attributes: {
             href:'https://nativebase.io',
             py: `${config.paddingVertical ? config.paddingVertical : '1'}`,
