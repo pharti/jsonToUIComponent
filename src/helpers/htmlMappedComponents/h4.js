@@ -8,6 +8,7 @@ export const getH4Config = (config) => {
         attributes: {
             fontSize: ComponentToFontSizeMap['h4'],
         },
+        children: config?.children && config?.children.length > 0 ? [...config?.children] : []
     };
 
 

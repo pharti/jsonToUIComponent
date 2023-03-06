@@ -1,6 +1,7 @@
 import React from "react";
 import { ComponentToCommonTagsMap } from "../constants/mapperConstants";
 import { configEngine } from "./ConfigEngine";
+import { parseHtml } from "./ParserEngine";
 
 const generateElement = (config) => {
     try {
@@ -8,10 +9,7 @@ const generateElement = (config) => {
             if (config?.content && config?.content !== '') {
                 return config?.content?.trim();
             } else if (config.value && config.value !== '') {
-                //...If config has just a single value as string. That is stored in value
                 return config.value;
-            } else {
-                return null;
             }
         }
         if (config.children && config?.children?.length > 0) {
@@ -40,7 +38,7 @@ const htmlElementCreator = (config) => {
             return React.createElement(
                 ComponentToCommonTagsMap[updatedConfig.tagName],                //... React component that we want to render
                 { ...updatedConfig.attributes },                              //... Attributes, styles, href, source etc
-                generateElement(updatedConfig)                                  //... Child element goes here.
+                generateElement(updatedConfig)                             //... Child element goes here.
             );
         }
     } catch (error) {

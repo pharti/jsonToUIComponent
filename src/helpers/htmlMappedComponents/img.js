@@ -2,12 +2,14 @@ export const getImgConfig = (config) => {
     //... config parameter is used when the default configuration are needed to override 
     let defaultImgConfig = {
         type: 'Element',
-        tagName: 'h2',
+        tagName: 'img',
         attributes: {
             resizeMode: "contain",
-            alt: config.attributes.alt,
-            src: config.attributes.src,
-            height: ['100'],
+            alt: config.alt,
+            source: { uri: `${config.src}` },
+            height: `${config.height ? config.height : 160}`,
+            width: `${config.width ? config.width : 160}`,
+            borderRadius: 8,
         },
     };
 
@@ -24,7 +26,6 @@ export const getImgConfig = (config) => {
             defaultImgConfig[key] = config[key];
         }
     });
-
     return defaultImgConfig;
 
 }

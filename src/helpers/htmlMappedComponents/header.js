@@ -3,8 +3,8 @@ export const getHeaderConfig = (config) => {
     let defaultHeaderConfig = {
         type: 'Element',
         tagName: 'header',
-        attributes: {
-        },
+        attributes: {},
+        children: config?.children && config?.children.length > 0 ? [...config?.children] : []
     };
 
     Object.keys(config).forEach((key, index) => {

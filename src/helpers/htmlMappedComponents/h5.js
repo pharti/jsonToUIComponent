@@ -8,6 +8,7 @@ export const getH5Config = (config) => {
         attributes: {
             fontSize: ComponentToFontSizeMap['h5'],
         },
+        children: config?.children && config?.children.length > 0 ? [...config?.children] : []
     };
 
 

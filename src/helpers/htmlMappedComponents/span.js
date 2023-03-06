@@ -8,6 +8,7 @@ export const getSpanConfig = (config) => {
         attributes: {
             fontSize: ComponentToFontSizeMap['span']
         },
+        children: config?.children && config?.children.length > 0 ? [...config?.children] : []
     };
 
 

@@ -8,6 +8,7 @@ export const getH3Config = (config) => {
         attributes: {
             fontSize: ComponentToFontSizeMap['h3'],
         },
+        children: config?.children && config?.children.length > 0 ? [...config?.children] : []
     };
 
 

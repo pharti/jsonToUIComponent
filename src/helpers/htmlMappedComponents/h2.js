@@ -1,7 +1,6 @@
 import { ComponentToFontSizeMap } from "../../constants/mapperConstants";
 
 export const getH2Config = (config) => {
-    console.log('H2 config', config);
     //... config parameter is used when the default configuration are needed to override 
     let defaultH2Config = {
         type: 'Element',
@@ -9,6 +8,7 @@ export const getH2Config = (config) => {
         attributes: {
             fontSize: ComponentToFontSizeMap['h2'],
         },
+        children: config?.children && config?.children.length > 0 ? [...config?.children] : []
     };
 
 
@@ -24,6 +24,5 @@ export const getH2Config = (config) => {
             defaultH2Config[key] = config[key];
         }
     });
-    console.log('defaultH2Config', defaultH2Config);
     return defaultH2Config;
 }

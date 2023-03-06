@@ -1,5 +1,5 @@
 /* eslint-disable prettier/prettier */
-import { Text } from 'native-base';
+import { Text, Box } from 'native-base';
 import * as React from 'react';
 import { ScrollView } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
@@ -188,55 +188,90 @@ parseHtml(testHTML).then((result) => {
 
 const testConfig = {
     children: [
-        // {
-        //     type: 'heading',
-        // },
-        // {
-        //     type: 'subHeading',
-        // },
-        // {
-        //     type: 'caption',
-        // },
-        // {
-        //     type: 'container',
-        // },
-        // {
-        //     type: 'image',
-        //     source: 'https://wallpaperaccess.com/full/317501.jpg'
-        // },
         {
             type: "div",
             id: "fancy-css-id-name",
             class: "fancy-css-class-name another-class-23",
-            attributes: { "aria": "blabla", "data-id": "blabla" },
+            attributes: { "aria": "blabla", "data-id": "blabla", },
+            styles: {
+                flex: 1
+            },
             children: [
                 {
-                    type: "h1",
+                    type: "div",
                     id: "fancy-css-id-name",
-                    class: "fancy-css-class-name smooth-image-class-13",
-                    value: "welcome Team One by NBA",
-                    link: "http://clickable-url",
-                    attributes: {
-                        aria: "blabla",
-                        "data-id": "blabla",
-                        bold: true,
-                    },
+                    class: "fancy-css-class-name another-class-23",
+                    attributes: { "aria": "blabla", "data-id": "blabla", },
                     styles: {
-                        color: "red",
-                        fontSize: 12
-                    }
-                }
+                        flex: 0.2,
+                        flexDirection: 'row',
+                        backgroundColor: 'blue.800',
+                        alignItems: 'center',
+                        paddingVertical: 6,
+                        borderBottomRadius: 8
+                    },
+                    children: [
+                        {
+                            type: "div",
+                            attributes: {},
+                            styles: {
+                                flex: 0.2,
+                                justifyContent: 'center',
+                                alignItems: 'center',
+                            },
+                            children: [
+                                {
+                                    type: 'icon',
+                                    color: 'white',
+                                    attributes: {},
+                                    styles: { color: 'white' },
+                                    name: "keyboard-backspace",
+                                    as: Icon
+                                },
+
+                            ]
+                        },
+                        {
+                            type: "div",
+                            attributes: {},
+                            styles: {
+                                flex: 0.6,
+                                alignItems: 'center',
+                            },
+                            children: [
+                                {
+                                    type: 'p',
+                                    value: 'Dashboard',
+                                    attributes: {
+                                    },
+                                    styles: {
+                                        color: 'white'
+                                    }
+                                }
+                            ]
+                        },
+                        {
+                            type: "div",
+                            attributes: {},
+                            styles: {
+                                flex: 0.2,
+                                justifyContent: 'center',
+                                alignItems: 'center',
+                            },
+                            children: [
+                                {
+                                    type: 'icon',
+                                    color: 'white',
+                                    name: "bell-badge-outline",
+                                    as: Icon
+                                }
+                            ]
+
+                        },
+                    ]
+                },
             ]
         },
-        // {
-        //     type: 'avatar',
-        //     source: 'https://bit.ly/broken-link',
-        // },
-        // {
-        //     type: 'icon',
-        //     name: "web",
-        //     as: Icon
-        // },
     ]
 };
 
@@ -250,6 +285,20 @@ const HomeScreen = () => {
                     color: 'red',
                     fontSize: 23
                 }}>Hello</Text> */}
+                {/* <Box display='flex' flexDirection="row" style={{ backgroundColor: 'red' }}>
+                    <Text fontSize='lg' style={{
+                        color: 'red',
+                        fontSize: 23
+                    }}>Hello</Text>
+                    <Text fontSize='lg' style={{
+                        color: 'red',
+                        fontSize: 23
+                    }}>Hello</Text>
+                    <Text fontSize='lg' style={{
+                        color: 'red',
+                        fontSize: 23
+                    }}>Hello</Text>
+                </Box> */}
                 {testConfig && RenderEngine(testConfig)}
             </ScrollView>
         </SafeAreaView >

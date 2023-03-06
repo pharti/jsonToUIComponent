@@ -1,4 +1,5 @@
 export const buttonGenerator = (config) => {
+    console.log("Button coNFIG", config);
     //... config parameter is used when the default configuration are needed to override 
     const defaultButtonConfig = {
         type: 'Element',
@@ -13,8 +14,6 @@ export const buttonGenerator = (config) => {
             isLoading: config.isLoading,
             isLoadingText: `${config.isLoadingText ? config.isLoadingText : "Loading..."}`,
             variant: `${config.variant ? config.variant : "solid"}`,
-            isDisabled: config.isDisabled,
-            onPress: () => config.onPressButton()
         },
         children: [{
             type: 'Element',
@@ -28,5 +27,15 @@ export const buttonGenerator = (config) => {
             ]
         }]
     };
+
+    Object.keys(config).forEach((key, index) => {
+        //... For attributes merge the config and default config attributes
+        if (key === 'attributes') {
+            defaultButtonConfig[key] = { ...defaultButtonConfig[key], ...config[key] };
+        } else {
+            defaultButtonConfig[key] = config[key];
+        }
+    });
+    console.log('default button config', defaultButtonConfig)
     return defaultButtonConfig;
 }

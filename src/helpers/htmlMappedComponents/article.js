@@ -15,6 +15,7 @@ export const getArticleConfig = (config) => {
             //... Breakpoints
             w: ['100%', '100%', '48%', '48%', '32%', '24%'],
         },
+        children: config?.children && config?.children.length > 0 ? [...config?.children] : []
     };
 
     Object.keys(config).forEach((key, index) => {

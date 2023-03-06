@@ -1,7 +1,6 @@
 import { ComponentToFontSizeMap } from "../../constants/mapperConstants";
 
 export const getH1Config = (config) => {
-    console.log("H1 Config", config);
     //... config parameter is used when the default configuration are needed to override 
     let defaultH1Config = {
         type: 'Element',
@@ -9,6 +8,7 @@ export const getH1Config = (config) => {
         attributes: {
             fontSize: ComponentToFontSizeMap['h1'],
         },
+        children: config.children && config.children.length > 0 ? [...config.children] : []
     };
 
     Object.keys(config).forEach((key, index) => {

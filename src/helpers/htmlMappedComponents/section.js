@@ -3,8 +3,8 @@ export const getSectionConfig = (config) => {
     let defaultSectionConfig = {
         type: 'Element',
         tagName: 'section',
-        attributes: {
-        },
+        attributes: {},
+        children: config?.children && config?.children.length > 0 ? [...config?.children] : []
     };
 
     Object.keys(config).forEach((key, index) => {

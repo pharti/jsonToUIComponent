@@ -6,13 +6,13 @@ export const avatarGenerator = (config) => {
         attributes: {
             source: { uri: `${config.source}` },
             alt: `${config.altText ? config.altText : 'Alternate image text'}`,
-            size: `${config.size ? config.size : 'xl'}`,
+            size: `${config.size ? config.size : 'md'}`,
             alignSelf: "center",
             bg: `${config.bg ? config.bg : 'green.500'}`,
         },
         children: [{
             type: 'Element',
-            tagName: 'h3',
+            tagName: 'p',
             attributes: {
                 color: `${config.textColor ? config.textColor : 'white'}`,
             },

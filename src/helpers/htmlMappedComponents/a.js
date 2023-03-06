@@ -6,6 +6,7 @@ export const getLinkConfig = (config) => {
         attributes: {
             href: `${config.href ? config.href : "#"}`,
         },
+        children: config?.children && config?.children.length > 0 ? [...config?.children] : []
     };
 
     Object.keys(config).forEach((key, index) => {

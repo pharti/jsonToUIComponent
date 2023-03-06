@@ -5,6 +5,7 @@ import { containerGenerator } from "./genericComponents/Container";
 import { headingGenerator } from "./genericComponents/Heading";
 import { iconGenerator } from "./genericComponents/Icon";
 import { imageGenerator } from "./genericComponents/Image";
+import { modalGenerator } from "./genericComponents/Modal";
 import { subHeadingGenerator } from "./genericComponents/SubHeading";
 
 import { getLinkConfig } from "./htmlMappedComponents/a";
@@ -19,6 +20,7 @@ import { getH4Config } from "./htmlMappedComponents/h4";
 import { getH5Config } from "./htmlMappedComponents/h5";
 import { getH6Config } from "./htmlMappedComponents/h6";
 import { getHeaderConfig } from "./htmlMappedComponents/header";
+import { getIconConfig } from "./htmlMappedComponents/icon";
 import { getImgConfig } from "./htmlMappedComponents/img";
 import { getPConfig } from "./htmlMappedComponents/p";
 import { getSectionConfig } from "./htmlMappedComponents/section";
@@ -31,13 +33,14 @@ export const configEngine = (config) => {
         let updatedConfig;
         //... parser gives tagName and User config type.
         let type = config.tagName || config.type;
+        console.log('type', type);
         switch (type) {
-            case 'text':
+            case 'Text':
                 updatedConfig = config;
                 break;
-            case 'element':
-                updatedConfig = config;
-                break;
+            // case 'Element':
+            //     updatedConfig = config;
+            //     break;
             case 'button':
                 updatedConfig = buttonGenerator(config);
                 break;
@@ -62,6 +65,9 @@ export const configEngine = (config) => {
             case 'icon':
                 updatedConfig = iconGenerator(config);
                 break;
+            case 'modal':
+                updatedConfig = modalGenerator(config);
+                break;
 
             case 'div':
                 updatedConfig = getDivConfig(config);
@@ -70,7 +76,6 @@ export const configEngine = (config) => {
                 updatedConfig = getH1Config(config);
                 break;
             case 'h2':
-                console.log('h2');
                 updatedConfig = getH2Config(config);
                 break;
             case 'h3':
@@ -86,10 +91,26 @@ export const configEngine = (config) => {
                 updatedConfig = getH6Config(config);
                 break;
             case 'p':
+                //... If the value consist of html tags. Than parse and get the config to iterate over all the tags.
+                //... DO NOT REMOVE
+                // const findHtmlTagRegex = /<\/?[a-z][\s\S]*>/g;
+                // const found = config.value.match(findHtmlTagRegex);
+                // if (found && found.length > 0) {
+                //     parseHtml(config.value).then(result => {
+                //         console.log("1", result);
+                //         updatedConfig = getPConfig(config, result.children);
+                //         console.log('4', updatedConfig);
+                //         return updatedConfig;
+                //     });
+                // }
                 updatedConfig = getPConfig(config);
                 break;
             case 'a':
+                console.log("*******get link config*******")
                 updatedConfig = getLinkConfig(config);
+                break;
+            case 'i':
+                updatedConfig = getIconConfig(config);
                 break;
             case 'section':
                 updatedConfig = getSectionConfig(config);
@@ -128,6 +149,3 @@ export const configEngine = (config) => {
     }
 
 };
-
-
-// export default configEngine;

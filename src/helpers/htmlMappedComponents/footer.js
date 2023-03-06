@@ -11,6 +11,7 @@ export const getFooterConfig = (config) => {
             */
             py: "2"
         },
+        children: config?.children && config?.children.length > 0 ? [...config?.children] : []
     };
 
     Object.keys(config).forEach((key, index) => {
