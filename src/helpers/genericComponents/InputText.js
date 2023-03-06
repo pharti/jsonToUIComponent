@@ -13,7 +13,7 @@ export const inputTextGenerator = (config) => {
             placeholder: `${config.placeholder ? config.placeholder : "Enter Name"}`,
             variant: `${config.variant ? config.variant : "outline"}`,
             isDisabled: config.isDisabled,
-            onTextChange: (text) => config.onTextChange(text),
+            onChangeText: (text) => config.onTextChange(text),
         },
     };
 

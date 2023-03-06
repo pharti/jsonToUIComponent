@@ -51,6 +51,7 @@ const HomeScreen = () => {
                 margingVertical: 1,
                 onTextChange: (text) => console.log('text ==> ', text),
                 onRadioButtonChanged: (value) => console.log('value ==> ', value),
+                onChecked: (value) => console.log('check value ==> ', value),
             },
         ]
     };

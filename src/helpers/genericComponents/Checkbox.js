@@ -8,6 +8,7 @@ export const checkBoxGenerator = (config) => {
             size: 'md',
             startIcon: '',
             isDisabled: config.isDisabled,
+            onChange: (value) => config.onChecked(value),
             py: `${config.paddingVertical ? config.paddingVertical : '1'}`,
         },
         children: [

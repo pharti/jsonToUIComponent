@@ -15,7 +15,7 @@ export const buttonGenerator = (config) => {
             isLoadingText: `${config.isLoadingText ? config.isLoadingText : "Loading..."}`,
             variant: `${config.variant ? config.variant : "solid"}`,
             isDisabled: config.isDisabled,
-            onPress: () => config.onPressButton()
+            onPress: () => config.onPressButton(),
         },
         children: [{
             type: 'Element',

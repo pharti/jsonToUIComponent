@@ -1,7 +1,5 @@
 /* eslint-disable prettier/prettier */
-import { radioButtonGenerator } from "./RadioButton";
 
-/* eslint-disable prettier/prettier */
 export const radioGroupGenerator = (config) => {
 
     const defaultRadioGroupConfig = {
@@ -9,8 +7,8 @@ export const radioGroupGenerator = (config) => {
         tagName: 'RadioGroup',
         attributes: {
             size: 'md',
-            value:'One',
-            onPress: (value) => config.onRadioButtonChanged(value),
+            defaultValue:'1',
+            onChange: (value) => config.onRadioButtonChanged(value),
             isDisabled: config.isDisabled,
         },
         children: [
@@ -19,7 +17,8 @@ export const radioGroupGenerator = (config) => {
                 tagName: 'RadioButton',
                 attributes: {
                     size: 'md',
-                    selected:'One',
+                    value:'1',
+                    colorScheme:"blue",
                     my: `${config.margingVertical ? config.margingVertical : '1'}`,
                 },
                 children: [
@@ -41,7 +40,8 @@ export const radioGroupGenerator = (config) => {
                 tagName: 'RadioButton',
                 attributes: {
                     size: 'md',
-                    selected:'Two',
+                    value:'2',
+                    colorScheme:"blue",
                     my: `${config.margingVertical ? config.margingVertical : '1'}`,
                 },
                 children: [
