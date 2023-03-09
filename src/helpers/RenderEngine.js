@@ -32,10 +32,11 @@ const generateElement = (config) => {
 const htmlElementCreator = (config) => {
     try {
         const updatedConfig = configEngine(config);
+        console.log('updatedConfig', updatedConfig);
         if (updatedConfig) {
             //... Create custom component based on type other than Element
             return React.createElement(
-                ComponentToCommonTagsMap[updatedConfig.tagName],                //... React component that we want to render
+                ComponentToCommonTagsMap[updatedConfig.tagName],                //... JSX element that we want to render
                 { ...updatedConfig.attributes },                              //... Attributes, styles, href, source etc
                 generateElement(updatedConfig)                             //... Child element goes here.
             );

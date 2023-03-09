@@ -1,7 +1,6 @@
 /* eslint-disable prettier/prettier */
-import { Text, Box } from 'native-base';
 import * as React from 'react';
-import { ScrollView } from 'react-native';
+import { ScrollView, Text } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { parseHtml } from '../helpers/ParserEngine';
 import RenderEngine from '../helpers/RenderEngine';
@@ -186,135 +185,219 @@ parseHtml(testHTML).then((result) => {
     htmlConfig = result;
 });
 
-const testConfig = {
-    children: [
-        {
-            type: 'input',
-            onTextChange: (text) => console.log('text ==> ', text),
-        },
-        // {
-        //     type: 'checkbox',
-        //     onChecked: (value) => console.log('check value ==> ', value),
-        // }
-        // {
-        //     type: 'stack',
-        //     paddingVertical: '5',
-        //     margingVertical: 1,
-        //     onTextChange: (text) => console.log('text ==> ', text),
-        //     onRadioButtonChanged: (value) => console.log('value ==> ', value),
-        //     onChecked: (value) => console.log('check value ==> ', value),
-        // },
-        // {
-        //     type: "div",
-        //     id: "fancy-css-id-name",
-        //     class: "fancy-css-class-name another-class-23",
-        //     attributes: { "aria": "blabla", "data-id": "blabla", },
-        //     styles: {
-        //         flex: 1
-        //     },
-        //     children: [
-        //         {
-        //             type: "div",
-        //             id: "fancy-css-id-name",
-        //             class: "fancy-css-class-name another-class-23",
-        //             attributes: { "aria": "blabla", "data-id": "blabla", },
-        //             styles: {
-        //                 flex: 0.2,
-        //                 flexDirection: 'row',
-        //                 backgroundColor: 'blue.800',
-        //                 alignItems: 'center',
-        //                 paddingVertical: 6,
-        //                 borderBottomRadius: 8
-        //             },
-        //             children: [
-        //                 {
-        //                     type: "div",
-        //                     attributes: {},
-        //                     styles: {
-        //                         flex: 0.2,
-        //                         justifyContent: 'center',
-        //                         alignItems: 'center',
-        //                     },
-        //                     children: [
-        //                         {
-        //                             type: 'icon',
-        //                             color: 'white',
-        //                             attributes: {},
-        //                             styles: { color: 'white' },
-        //                             name: "keyboard-backspace",
-        //                             as: Icon
-        //                         },
 
-        //                     ]
-        //                 },
-        //                 {
-        //                     type: "div",
-        //                     attributes: {},
-        //                     styles: {
-        //                         flex: 0.6,
-        //                         alignItems: 'center',
-        //                     },
-        //                     children: [
-        //                         {
-        //                             type: 'p',
-        //                             value: 'Dashboard',
-        //                             attributes: {
-        //                             },
-        //                             styles: {
-        //                                 color: 'white'
-        //                             }
-        //                         }
-        //                     ]
-        //                 },
-        //                 {
-        //                     type: "div",
-        //                     attributes: {},
-        //                     styles: {
-        //                         flex: 0.2,
-        //                         justifyContent: 'center',
-        //                         alignItems: 'center',
-        //                     },
-        //                     children: [
-        //                         {
-        //                             type: 'icon',
-        //                             color: 'white',
-        //                             name: "bell-badge-outline",
-        //                             as: Icon
-        //                         }
-        //                     ]
 
-        //                 },
-        //             ]
-        //         },
-        //     ]
-        // },
-    ]
-};
 
 const HomeScreen = () => {
+
+
+    const [openModal, setOpenModal] = React.useState(false);
+
+    const _toggleModalState = () => {
+        console.log("Toogle Modal");
+        setOpenModal(!openModal);
+    };
+
+    const testConfig = {
+        children: [
+            // {
+            //     type: 'div',
+            //     id: 'container-div',
+            //     class: 'container-class',
+            //     attributes: {},
+            //     styles: { padding: 8 },
+            //     children: [
+            //         {
+            //             type: 'h6',
+            //             id: 'para',
+            //             class: 'para-class',
+            //             attributes: {
+            //                 paddingBottom: 8,
+            //             },
+            //             value: 'Login Form',
+            //         },
+            //         {
+            //             type: 'p',
+            //             id: 'para',
+            //             class: 'para-class',
+            //             attributes: {},
+            //             value: 'Username',
+            //         },
+            //         {
+            //             type: 'input',
+            //             onTextChange: (text) => console.log('text ==> ', text),
+            //         },
+            //         {
+            //             type: 'p',
+            //             id: 'para',
+            //             attributes: {
+            //                 marginTop: 4
+            //             },
+            //             class: 'para-class',
+            //             value: 'Password',
+            //         },
+            //         {
+            //             type: 'input',
+            //             onTextChange: (text) => console.log('text ==> ', text),
+            //         },
+            //         {
+            //             type: 'button',
+            //             attributes: {
+            //                 marginTop: 8
+            //             },
+            //             style: {},
+            //             onPress: (text) => console.log('Button Click'),
+            //         }
+            //     ]
+            // },
+            // {
+            //     type: 'div',
+            //     id: 'container-div',
+            //     class: 'container-class',
+            //     attributes: {},
+            //     styles: { padding: 8 },
+            //     children: [
+            //         // {
+            //         //     type: 'button',
+            //         //     buttonText: 'Open Modal',
+            //         //     attributes: {
+            //         //         marginTop: 8
+            //         //     },
+            //         //     style: {},
+            //         //     onPress: (text) => _toggleModalState(),
+            //         // },
+            //         // {
+            //         //     type: 'modal',
+            //         //     isOpen: openModal,
+            //         //     children: [
+            //         //         {
+            //         //             type: 'modalContent',
+            //         //             id: 'para',
+            //         //             class: 'para-class',
+            //         //             attributes: {
+            //         //                 paddingBottom: 8,
+            //         //                 backgroundColor: 'red',
+            //         //             },
+            //         //             children: [
+            //         //                 {
+            //         //                     type: 'modalHeader',
+            //         //                     attributes: {},
+            //         //                     styles: { color: 'black' },
+            //         //                     children: [
+            //         //                         {
+            //         //                             type: 'p',
+            //         //                             id: 'para',
+            //         //                             attributes: {
+            //         //                                 marginTop: 4
+            //         //                             },
+            //         //                             class: 'para-class',
+            //         //                             value: 'Password',
+            //         //                         },
+            //         //                     ]
+            //         //                 },
+            //         //             ]
+            //         //         },
+
+            //         //     ]
+            //         // },
+            //         {
+            //             type: 'checkBox'
+            //         }
+
+            //     ]
+            // },
+            // {
+            //     type: 'carousel',
+            //     data: [
+            //         {
+            //             name: 'Amit'
+            //         },
+            //         {
+            //             name: 'Kailash'
+            //         },
+            //         {
+            //             name: 'Gunnu'
+            //         }
+            //     ],
+            //     renderItem: () => {
+            //         return ({
+            //             type: 'Element',
+            //             tagName: 'p',
+            //             attributes: {},
+            //             children: [
+            //                 {
+            //                     type: 'Text',
+            //                     content: 'Checkbox 1',
+            //                 },
+            //             ],
+            //         })
+            //     }
+            // },
+            {
+                type: 'checkBox',
+                children: [
+                    {
+                        type: 'Element',
+                        tagName: 'p',
+                        attributes: {},
+                        children: [
+                            {
+                                type: 'Text',
+                                content: 'Checkbox 1',
+                            },
+                        ],
+                    },
+                ]
+            },
+            {
+                type: 'radioGroup',
+                onPress: (value) => console.log('value ==> ', value),
+                children: [
+                    {
+                        type: 'radioButton',
+                        value: 1,
+                        children: [
+                            {
+                                type: 'Element',
+                                tagName: 'p',
+                                attributes: {},
+                                children: [
+                                    {
+                                        type: 'Text',
+                                        content: 'Radio 1',
+                                    },
+                                ],
+                            },
+                        ]
+                    },
+                    {
+                        type: 'radioButton',
+                        value: 2,
+                        children: [
+                            {
+                                type: 'Element',
+                                tagName: 'p',
+                                attributes: {},
+                                children: [
+                                    {
+                                        type: 'Text',
+                                        content: 'Radio 2',
+                                    },
+                                ],
+                            },
+                        ]
+                    },
+                ]
+            }
+
+        ]
+    };
+
 
 
     return (
         <SafeAreaView style={{ flex: 1 }}>
             <ScrollView contentContainerStyle={{ padding: 16 }}>
-                {/* <Text fontSize='lg' style={{
-                    color: 'red',
-                    fontSize: 23
-                }}>Hello</Text> */}
-                {/* <Box display='flex' flexDirection="row" style={{ backgroundColor: 'red' }}>
-                    <Text fontSize='lg' style={{
-                        color: 'red',
-                        fontSize: 23
-                    }}>Hello</Text>
-                    <Text fontSize='lg' style={{
-                        color: 'red',
-                        fontSize: 23
-                    }}>Hello</Text>
-                    <Text fontSize='lg' style={{
-                        color: 'red',
-                        fontSize: 23
-                    }}>Hello</Text>
-                </Box> */}
                 {testConfig && RenderEngine(testConfig)}
             </ScrollView>
         </SafeAreaView >

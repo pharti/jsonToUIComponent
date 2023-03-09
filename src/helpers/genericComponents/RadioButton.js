@@ -3,14 +3,15 @@ export const radioButtonGenerator = (config) => {
 
     const defaultRadioButtonConfig = {
         type: 'Element',
-        tagName: 'RadioButton',
+        tagName: 'radioButton',
         attributes: {
             size: 'md',
             startIcon: '',
             //... bgColor overrides the colorScheme
-            variant: `${config.variant ? config.variant : "outline"}`,
             isDisabled: config.isDisabled,
+            value: config.value
         },
+        children: config.children && config.children.length > 0 ? [...config.children] : []
     };
 
     //... config parameter is used when the default configuration are needed to override

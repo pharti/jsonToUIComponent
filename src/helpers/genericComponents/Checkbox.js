@@ -1,67 +1,15 @@
 /* eslint-disable prettier/prettier */
 export const checkBoxGenerator = (config) => {
 
-    const defaultInputTextConfig = {
+    const defaultCheckBoxConfig = {
         type: 'Element',
-        tagName: 'CheckboxGroup',
+        tagName: 'checkBox',
         attributes: {
-            size: 'md',
-            startIcon: '',
-            isDisabled: config.isDisabled,
-            onChange: (value) => config.onChecked(value),
-            py: `${config.paddingVertical ? config.paddingVertical : '1'}`,
+            value: `${config.value}`,
+            isDisabled: config.isDisabled ? true : false,
         },
-        children: [
-            {
-                type: 'Element',
-                tagName: 'Checkbox',
-                attributes: {
-                    size: 'md',
-                    value: `${config.value ? config.value : 'One'}`,
-                    defaultIsChecked: `${config.defaultIsChecked ? config.defaultIsChecked : true}`,
-                    isDisabled: config.isDisabled,
-                    my: `${config.margingVertical ? config.margingVertical : '1'}`,
-                },
-                children: [
-                    {
-                        type: 'Element',
-                        tagName: 'h1',
-                        attributes: {},
-                        children: [
-                            {
-                                type: 'Text',
-                                content: 'Checkbox 1',
-                            },
-                        ],
-                    },],
-            },
-            {
-                type: 'Element',
-                tagName: 'Checkbox',
-                attributes: {
-                    size: 'md',
-                    value: `${config.value ? config.value : 'Two'}`,
-                    defaultIsChecked: `${config.defaultIsChecked ? config.defaultIsChecked : true}`,
-                    isDisabled: config.isDisabled,
-                    my: `${config.margingVertical ? config.margingVertical : '1'}`,
-                },
-                children: [
-                    {
-                        type: 'Element',
-                        tagName: 'h1',
-                        attributes: {},
-                        children: [
-                            {
-                                type: 'Text',
-                                content: 'Checkbox 1',
-                            },
-                        ],
-                    },],
-
-            },
-        ],
+        children: config.children && config.children.length > 0 ? [...config.children] : []
     };
-
     //... config parameter is used when the default configuration are needed to override
-    return defaultInputTextConfig;
+    return defaultCheckBoxConfig;
 }

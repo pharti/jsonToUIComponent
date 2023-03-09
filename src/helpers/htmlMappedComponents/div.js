@@ -23,12 +23,12 @@ export const getDivConfig = (config) => {
                 defaultDivConfig['attributes'].py = config[key].paddingVertical;
             }
             if ("paddingHorizontal" in config[key]) {
-                defaultDivConfig['attributes'].py = config[key].paddingVertical;
+                defaultDivConfig['attributes'].py = config[key].paddingHorizontal;
             }
         } else {
             defaultDivConfig[key] = config[key];
         }
     });
-    console.log('defaultDivConfig', defaultDivConfig);
+
     return defaultDivConfig;
 }

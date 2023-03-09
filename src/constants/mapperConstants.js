@@ -1,4 +1,9 @@
-import { Box, Link, Text, Modal, HStack, VStack, Stack, Image, FormControl, Input, Button, ArrowBackIcon, Heading, Avatar, Icon } from 'native-base';
+import { Box, Link, Text, Radio, HStack, VStack, Stack, Image, FormControl, Input, Button, ArrowBackIcon, Heading, Avatar, Icon, Checkbox, FlatList } from 'native-base';
+import { Modal } from 'native-base';
+const ModalContent = Modal.Content;
+const ModalHeader = Modal.Header;
+
+
 //... Maps native base component to common HTML tags
 export const ComponentToCommonTagsMap = {
     //... Page tags
@@ -112,6 +117,12 @@ export const ComponentToCommonTagsMap = {
     avatar: Avatar,
     icon: Icon,
     modal: Modal,
+    modalContent: ModalContent,
+    modalHeader: ModalHeader,
+    checkBox: Checkbox,
+    radioButton: Radio,
+    radioGroup: Radio.Group,
+    carousel: FlatList,
     //...Stack compoments
     HStack: HStack,
     VStack: VStack,

@@ -1,17 +1,21 @@
 import { avatarGenerator } from "./genericComponents/Avatar";
-import { buttonGenerator } from "./genericComponents/Button";
 import { captionGenerator } from "./genericComponents/Caption";
-import { containerGenerator } from "./genericComponents/Container";
+import { carouselGenerator } from "./genericComponents/Carousel";
+import { checkBoxGenerator } from "./genericComponents/CheckBox";
 import { headingGenerator } from "./genericComponents/Heading";
 import { iconGenerator } from "./genericComponents/Icon";
-import { imageGenerator } from "./genericComponents/Image";
 import { modalGenerator } from "./genericComponents/Modal";
+import { modalContentGenerator } from "./genericComponents/ModalContent";
+import { modalHeaderGenerator } from "./genericComponents/ModalHeader";
+import { radioButtonGenerator } from "./genericComponents/RadioButton";
+import { radioGroupGenerator } from "./genericComponents/RadioGroup";
 import { stackGenerator } from "./genericComponents/StackContainer";
 import { subHeadingGenerator } from "./genericComponents/SubHeading";
 
 import { getLinkConfig } from "./htmlMappedComponents/a";
 import { getArticleConfig } from "./htmlMappedComponents/article";
-import { getCheckBoxConfig } from "./htmlMappedComponents/checkbox";
+import { getButtonConfig } from "./htmlMappedComponents/button";
+// import { getCheckBoxConfig } from "./htmlMappedComponents/checkbox";
 import { getDivConfig } from "./htmlMappedComponents/div";
 import { getFigureConfig } from "./htmlMappedComponents/figure";
 import { getFooterConfig } from "./htmlMappedComponents/footer";
@@ -36,18 +40,8 @@ export const configEngine = (config) => {
     try {
         let updatedConfig;
         //... parser gives tagName and User config type.
-        let type = config.tagName || config.type;
-        console.log('type', type);
+        let type = config?.tagName || config?.type;
         switch (type) {
-            case 'Text':
-                updatedConfig = config;
-                break;
-            // case 'Element':
-            //     updatedConfig = config;
-            //     break;
-            case 'button':
-                updatedConfig = buttonGenerator(config);
-                break;
             case 'heading':
                 updatedConfig = headingGenerator(config);
                 break;
@@ -57,24 +51,34 @@ export const configEngine = (config) => {
             case 'caption':
                 updatedConfig = captionGenerator(config);
                 break;
-            case 'container':
-                updatedConfig = containerGenerator(config);
-                break;
-            case 'image':
-                updatedConfig = imageGenerator(config);
-                break;
             case 'avatar':
                 updatedConfig = avatarGenerator(config);
                 break;
             case 'icon':
                 updatedConfig = iconGenerator(config);
                 break;
+            case 'checkBox':
+                updatedConfig = checkBoxGenerator(config);
+                break;
+            case 'radioButton':
+                updatedConfig = radioButtonGenerator(config);
+                break;
+            case 'radioGroup':
+                updatedConfig = radioGroupGenerator(config);
+                break;
+            case 'carousel':
+                updatedConfig = carouselGenerator(config);
+                break;
             case 'modal':
                 updatedConfig = modalGenerator(config);
                 break;
-            case 'stack':
-                updatedConfig = stackGenerator(config);
-                break;
+            // case 'modalContent':
+            //     updatedConfig = modalContentGenerator(config);
+            //     break;
+            // case 'modalHeder':
+            //     updatedConfig = modalHeaderGenerator(config);
+            //     break;
+            //HTML TAGS
             case 'div':
                 updatedConfig = getDivConfig(config);
                 break;
@@ -112,7 +116,6 @@ export const configEngine = (config) => {
                 updatedConfig = getPConfig(config);
                 break;
             case 'a':
-                console.log("*******get link config*******")
                 updatedConfig = getLinkConfig(config);
                 break;
             case 'i':
@@ -148,9 +151,11 @@ export const configEngine = (config) => {
             case 'input':
                 updatedConfig = getInputConfig(config);
                 break;
-            case 'checkbox':
-                updatedConfig = getCheckBoxConfig(config);
-                break;
+            // case 'checkbox':
+            //     updatedConfig = getCheckBoxConfig(config);
+            //     break;
+            case 'button':
+                updatedConfig = getButtonConfig(config);
             default:
                 console.log("***Default**")
                 return updatedConfig;

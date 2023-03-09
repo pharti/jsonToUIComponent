@@ -3,7 +3,7 @@ export const modalGenerator = (config) => {
         type: 'Element',
         tagName: 'modal',
         attributes: {
-            isOpen: true
+            isOpen: config.isOpen ? true : false
         },
     };
 
