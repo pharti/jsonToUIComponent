@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 export const modalGenerator = (config) => {
     const defaultModalConfig = {
         type: 'Element',
