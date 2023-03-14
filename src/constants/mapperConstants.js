@@ -1,7 +1,57 @@
 /* eslint-disable prettier/prettier */
-import { Box, Link, Text, Image, FormControl, Input, Button, Radio, ArrowBackIcon, Heading, Avatar, Icon, Checkbox,Stack, VStack, HStack } from 'native-base';
+import { Box, Link, Text, Radio, HStack, VStack, Stack, Image, FormControl, Input, Button, ArrowBackIcon, Heading, Avatar, Icon, Checkbox, FlatList } from 'native-base';
+import { Modal } from 'native-base';
+const ModalContent = Modal.Content;
+const ModalHeader = Modal.Header;
+
+
 //... Maps native base component to common HTML tags
 export const ComponentToCommonTagsMap = {
+    //... Page tags
+    // html
+    // head
+    // body
+    // link
+    // meta
+    // base
+    // script 
+    // style 
+    // title 
+
+    //...Layout tags
+    header: Box,
+    // main
+    footer: Box,
+    // nav 
+    article: Box,
+    // aside
+    div: Box,
+    section: Box,
+
+    //... Table tags
+    // table
+    // caption
+    // colgroup
+    // col
+    // thead
+    // tbody
+    // tfoot
+    // tr 
+    // th 
+    // td 
+
+    //... Form tags
+    form: FormControl,
+    input: Input,
+    // label 
+    // textarea 
+    // select 
+    // button 
+    // datalist 
+    // fieldset 
+    // legend 
+
+    //...Text tags   
     p: Text,
     h1: Text,
     h2: Text,
@@ -9,36 +59,55 @@ export const ComponentToCommonTagsMap = {
     h4: Text,
     h5: Text,
     h6: Text,
-    b: Text,
     span: Text,
-
+    // br
+    sub: Text,
+    // sup
+    u: Text,        //...u HTML tag is outdated, instead use ins
     i: Text,
-    em: Text,
     b: Text,
+    em: Text,
+    // strong
+    del: Text,
+    ins: Text,
+    // ruby
+    //kbd
+    //wbr
+
+    //... List tag
+    // ul 
+    // ol 
+    // li 
+    // dl 
+    // dt 
+    // dd 
+
+    //...Media tags
+    //audio
+    //video
+    //source
+    img: Image,
+    //canvas
+    //track
+    //embed
+    //iframe
+    //svg
+    //area
+    figure: Box,
+    //figcaption
+    //map
+
+    //...code group
+    //pre
+    //code
+    //samp
+    //output
+    //var
+
     a: Link,
     mark: Text,
     small: Text,
-    sub: Text,
-    u: Text, //...u HTML tag is outdated, instead use ins
-    strike: Text, //...strike HTML tag is outdated, instead use del
-    del: Text,
-    ins: Text,
-    div: Box,
-    img: Image,
-    form: FormControl,
-    inputText: Input,
-    icon: ArrowBackIcon,
-    Checkbox:Checkbox,
-    RadioButton:Radio,
-    RadioGroup:Radio.Group,
-    CheckboxGroup:Checkbox.Group,
-    Link:Link,
-
-    //...Stack compoments
-    HStack:HStack,
-    VStack:VStack,
-    Stack:Stack,
-
+    time: Text,
     //... Generic Components
     heading: Heading,
     subHeading: Text,
@@ -47,7 +116,18 @@ export const ComponentToCommonTagsMap = {
     image: Image,
     container: Box,
     avatar: Avatar,
-    icons: Icon,
+    icon: Icon,
+    modal: Modal,
+    modalContent: ModalContent,
+    modalHeader: ModalHeader,
+    checkBox: Checkbox,
+    radioButton: Radio,
+    radioGroup: Radio.Group,
+    carousel: FlatList,
+    //...Stack compoments
+    HStack: HStack,
+    VStack: VStack,
+    stack: Stack,
     //... Composite Components
     card: Box,
 };
@@ -57,12 +137,13 @@ export const ComponentToFontSizeMap = {
     small: 'xs',
     caption: 'sm',
     p: 'md',
-    h1: 'xl',
-    h2: '2xl',
-    h3: '3xl',
-    h4: '4xl',
-    h5: '5xl',
-    h6: '6xl',
+    h1: '6xl',
+    h2: '5xl',
+    h3: '4xl',
+    h4: '3xl',
+    h5: '2xl',
+    h6: 'xl',
+    time: 'sm'
 };
 
 //... Maps native base font style standards to HTML tags
@@ -74,4 +155,5 @@ export const ComponentToFontStyleMap = {
 //... Maps native base font weight standards to HTML tags
 export const ComponentToFontWeightMap = {
     b: 'bold',
+    strong: 'bold',
 };

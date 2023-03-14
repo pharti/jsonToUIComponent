@@ -1,0 +1,485 @@
+const testConfig = {
+    children: [
+        // {
+        //     type: 'heading',
+        // },
+        // {
+        //     type: 'subHeading',
+        // },
+        // {
+        //     type: 'caption',
+        // },
+        // {
+        //     type: 'container',
+        // },
+        // {
+        //     type: 'image',
+        //     source: 'https://wallpaperaccess.com/full/317501.jpg'
+        // },
+
+        {
+            type: "div",
+            id: "fancy-css-id-name",
+            class: "fancy-css-class-name another-class-23",
+            attributes: { "aria": "blabla", "data-id": "blabla", },
+            styles: {
+                flex: 1
+            },
+            children: [
+                {
+                    type: "button",
+                    id: "fancy-css-id-name",
+                    class: "fancy-css-class-name another-class-23",
+                    attributes: { "aria": "blabla", "data-id": "blabla", },
+                    onPress: () => setShowModal(true),
+                    styles: {
+                        flex: 1
+                    },
+                    children: [
+                        {
+                            type: 'modal',
+                            attributes: {},
+                            styles: { color: 'white' },
+                            name: "keyboard-backspace",
+                        },
+                    ]
+                }
+            ]
+        },
+
+        //Header
+        {
+            type: "div",
+            id: "fancy-css-id-name",
+            class: "fancy-css-class-name another-class-23",
+            attributes: { "aria": "blabla", "data-id": "blabla", },
+            styles: {
+                flex: 1
+            },
+            children: [
+                //...Header
+                {
+                    type: "div",
+                    id: "fancy-css-id-name",
+                    class: "fancy-css-class-name another-class-23",
+                    attributes: { "aria": "blabla", "data-id": "blabla", },
+                    styles: {
+                        flex: 0.2,
+                        flexDirection: 'row',
+                        backgroundColor: 'blue.800',
+                        alignItems: 'center',
+                        paddingVertical: 6,
+                        borderBottomRadius: 8
+                    },
+                    children: [
+                        {
+                            type: "div",
+                            attributes: {},
+                            styles: {
+                                flex: 0.2,
+                                justifyContent: 'center',
+                                alignItems: 'center',
+                            },
+                            children: [
+                                {
+                                    type: 'icon',
+                                    color: 'white',
+                                    attributes: {},
+                                    styles: { color: 'white' },
+                                    name: "keyboard-backspace",
+                                    as: Icon
+                                },
+
+                            ]
+                        },
+                        {
+                            type: "div",
+                            attributes: {},
+                            styles: {
+                                flex: 0.6,
+                                alignItems: 'center',
+                            },
+                            children: [
+                                {
+                                    type: 'p',
+                                    value: 'Dashboard',
+                                    attributes: {
+                                    },
+                                    styles: {
+                                        color: 'white'
+                                    }
+                                }
+                            ]
+                        },
+                        {
+                            type: "div",
+                            attributes: {},
+                            styles: {
+                                flex: 0.2,
+                                justifyContent: 'center',
+                                alignItems: 'center',
+                            },
+                            children: [
+                                {
+                                    type: 'icon',
+                                    color: 'white',
+                                    name: "bell-badge-outline",
+                                    as: Icon
+                                }
+                            ]
+
+                        },
+                    ]
+                },
+                //...Body
+                {
+                    type: "div",
+                    id: "fancy-css-id-name",
+                    class: "fancy-css-class-name another-class-23",
+                    attributes: { "aria": "blabla", "data-id": "blabla", },
+                    styles: {
+                        backgroundColor: 'trueGray.200',
+                    },
+                    children: [
+                        {
+                            type: "div",
+                            attributes: {},
+                            styles: {
+                                backgroundColor: 'trueGray.200',
+                                paddingHorizontal: 16,
+
+                            },
+                            children: [
+                                {
+                                    type: "div",
+                                    attributes: {},
+                                    styles: {
+                                        flex: 1,
+                                        flexDirection: 'row',
+                                        alignItems: 'center',
+                                        paddingVertical: 4,
+                                    },
+                                    children: [
+                                        {
+                                            type: 'avatar',
+                                            attributes: {
+                                                size: 'md',
+                                            },
+                                            styles: {
+                                                flex: 0.4,
+                                            }
+                                        },
+                                        {
+                                            type: 'p',
+                                            value: 'John Doe',
+                                            attributes: {
+                                                px: 8
+                                            },
+                                            styles: {
+                                                flex: 0.6,
+                                            }
+                                        }
+                                    ]
+
+                                },
+                                {
+                                    type: "div",
+                                    attributes: {},
+                                    styles: {
+                                        flex: 1,
+                                        flexDirection: 'row',
+                                        alignItems: 'center',
+                                        paddingVertical: 4,
+                                    },
+                                    children: [
+                                        {
+                                            type: 'avatar',
+                                            attributes: {
+                                                size: 'md',
+                                            },
+                                            styles: {
+                                                flex: 0.4,
+                                            }
+                                        },
+                                        {
+                                            type: 'p',
+                                            value: 'Amit Singh',
+                                            attributes: {
+                                                px: 8
+                                            },
+                                            styles: {
+                                                flex: 0.6,
+                                            }
+                                        }
+                                    ]
+
+                                },
+                                {
+                                    type: "div",
+                                    attributes: {},
+                                    styles: {
+                                        flex: 1,
+                                        flexDirection: 'row',
+                                        alignItems: 'center',
+                                        paddingVertical: 4,
+                                    },
+                                    children: [
+                                        {
+                                            type: 'avatar',
+                                            attributes: {
+                                                size: 'md',
+                                            },
+                                            styles: {
+                                                flex: 0.4,
+                                            }
+                                        },
+                                        {
+                                            type: 'p',
+                                            value: 'Atul Pawar',
+                                            attributes: {
+                                                px: 8,
+                                            },
+                                            styles: {
+                                                flex: 0.6,
+                                            }
+                                        }
+                                    ]
+
+                                },
+                                {
+                                    type: "div",
+                                    attributes: {},
+                                    styles: {
+                                        flex: 1,
+                                        flexDirection: 'row',
+                                        alignItems: 'center',
+                                        paddingVertical: 4,
+                                    },
+                                    children: [
+                                        {
+                                            type: 'avatar',
+                                            attributes: {
+                                                size: 'md',
+                                            },
+                                            styles: {
+                                                flex: 0.4,
+                                            }
+                                        },
+                                        {
+                                            type: 'p',
+                                            value: 'Sagar Jadhav',
+                                            attributes: {
+                                                px: 8
+                                            },
+                                            styles: {
+                                                flex: 0.6,
+                                            }
+                                        }
+                                    ]
+
+                                },
+                                {
+                                    type: "div",
+                                    attributes: {},
+                                    styles: {
+                                        flex: 1,
+                                        flexDirection: 'row',
+                                        alignItems: 'center',
+                                        paddingVertical: 4,
+                                    },
+                                    children: [
+                                        {
+                                            type: 'avatar',
+                                            attributes: {
+                                                size: 'md',
+                                            },
+                                            styles: {
+                                                flex: 0.4,
+                                            }
+                                        },
+                                        {
+                                            type: 'p',
+                                            value: 'John Doe',
+                                            attributes: {
+                                                px: 8,
+
+                                            },
+                                            styles: {
+                                                flex: 0.6,
+                                            }
+                                        }
+                                    ]
+                                },
+                                {
+                                    type: "div",
+                                    attributes: {},
+                                    styles: {
+                                        flex: 1,
+                                        flexDirection: 'row',
+                                        alignItems: 'center',
+                                        paddingVertical: 4,
+                                    },
+                                    children: [
+                                        {
+                                            type: 'avatar',
+                                            attributes: {
+                                                size: 'md',
+                                            },
+                                            styles: {
+                                                flex: 0.4,
+                                            }
+                                        },
+                                        {
+                                            type: 'p',
+                                            value: 'John Doe',
+                                            attributes: {
+                                                px: 8
+                                            },
+                                            styles: {
+                                                flex: 0.6,
+                                            }
+                                        }
+                                    ]
+
+                                },
+                                {
+                                    type: "div",
+                                    attributes: {},
+                                    styles: {
+                                        flex: 1,
+                                        flexDirection: 'row',
+                                        alignItems: 'center',
+                                        paddingVertical: 4,
+                                    },
+                                    children: [
+                                        {
+                                            type: 'avatar',
+                                            attributes: {
+                                                size: 'md',
+                                            },
+                                            styles: {
+                                                flex: 0.4,
+                                            }
+                                        },
+                                        {
+                                            type: 'p',
+                                            value: 'Amit Singh',
+                                            attributes: {
+                                                px: 8
+                                            },
+                                            styles: {
+                                                flex: 0.6,
+                                            }
+                                        }
+                                    ]
+
+                                },
+                                {
+                                    type: "div",
+                                    attributes: {},
+                                    styles: {
+                                        flex: 1,
+                                        flexDirection: 'row',
+                                        alignItems: 'center',
+                                        paddingVertical: 4,
+                                    },
+                                    children: [
+                                        {
+                                            type: 'avatar',
+                                            attributes: {
+                                                size: 'md',
+                                            },
+                                            styles: {
+                                                flex: 0.4,
+                                            }
+                                        },
+                                        {
+                                            type: 'p',
+                                            value: 'Atul Pawar',
+                                            attributes: {
+                                                px: 8,
+                                            },
+                                            styles: {
+                                                flex: 0.6,
+                                            }
+                                        }
+                                    ]
+
+                                },
+                            ]
+                        },
+                    ]
+                },
+                //...Footer
+                {
+                    type: "div",
+                    id: "fancy-css-id-name",
+                    class: "fancy-css-class-name another-class-23",
+                    attributes: { "aria": "blabla", "data-id": "blabla", },
+                    styles: {
+                        height: '20%',
+                        backgroundColor: 'blue.800',
+                        borderTopRadius: 8
+                    },
+                    children: [
+                    ]
+                },
+            ]
+        },
+
+        // {
+        //     type: "div",
+        //     id: "fancy-css-id-name",
+        //     class: "fancy-css-class-name another-class-23",
+        //     attributes: { "aria": "blabla", "data-id": "blabla" },
+        //     children: [
+        //         {
+        //             type: "h1",
+        //             id: "fancy-css-id-name",
+        //             class: "fancy-css-class-name smooth-image-class-13",
+        //             value: "welcome Team One by NBA",
+        //             link: "http://clickable-url",
+        //             attributes: {
+        //                 aria: "blabla",
+        //                 "data-id": "blabla",
+        //                 bold: true,
+        //             },
+        //             styles: {
+        //                 color: "red",
+        //                 fontSize: 12
+        //             }
+        //         }
+        //     ]
+        // },
+        // {
+        //     type: "img",
+        //     id: "fancy-css-id-name",
+        //     link: "http://clickable-url",
+        //     src: 'https://wallpaperaccess.com/full/317501.jpg',
+        //     alt: "Alt image desc",
+        //     // Note: It's either className or the style. not both will be used to render
+        //     class: "fancy-css-class-name smooth-image-class-13",
+        //     styles: {
+        //         borderRadius: 16
+        //     },
+        // },
+        // {
+        //     // Note: P/paragraph tag should support bold and hyperlinks within the text. example below.
+        //     type: "p",
+        //     id: "fancy-css-id-name",
+        //     value: "The Thwaites <strong>Glacier</strong> is roughly the <a href = 'http://somewhere.com'>some clickable links</a> of Florida and is located in West Antarctica. Part of what holds it in place is an ice shelf that juts out onto the surface of the ocean. The shelf acts like a cork, holding the glacier back on the land and providing an important defense against sea level rise.",
+        //     // Note: It's either className or the style. not both will be used to render
+        //     class: "fancy-css-class-name smooth-paragraph23",
+        //     styles: {},
+        // },
+        // {
+        //     type: 'avatar',
+        //     source: 'https://bit.ly/broken-link',
+        // },
+        // {
+        //     type: 'icon',
+        //     name: "web",
+        //     as: Icon
+        // },
+    ]
+};
