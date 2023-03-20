@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 import { avatarGenerator } from "./genericComponents/Avatar";
 import { captionGenerator } from "./genericComponents/Caption";
 import { carouselGenerator } from "./genericComponents/Carousel";

@@ -4,6 +4,7 @@ import { ScrollView, Text } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { parseHtml } from '../helpers/ParserEngine';
 import RenderEngine from '../helpers/RenderEngine';
+import platformComponents from '../helpers/PlatformDependantComponent';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 
 const testHTML = `<div class="keyboard-quick-nav">
@@ -333,8 +334,65 @@ const HomeScreen = () => {
             //         })
             //     }
             // },
+            // {
+            //     type: 'checkBox',
+            //     children: [
+            //         {
+            //             type: 'Element',
+            //             tagName: 'p',
+            //             attributes: {},
+            //             children: [
+            //                 {
+            //                     type: 'Text',
+            //                     content: 'Checkbox 1',
+            //                 },
+            //             ],
+            //         },
+            //     ]
+            // },
+            // {
+            //     type: 'radioGroup',
+            //     onPress: (value) => console.log('value ==> ', value),
+            //     children: [
+            //         {
+            //             type: 'radioButton',
+            //             value: 1,
+            //             children: [
+            //                 {
+            //                     type: 'Element',
+            //                     tagName: 'p',
+            //                     attributes: {},
+            //                     children: [
+            //                         {
+            //                             type: 'Text',
+            //                             content: 'Radio 1',
+            //                         },
+            //                     ],
+            //                 },
+            //             ]
+            //         },
+            //         {
+            //             type: 'radioButton',
+            //             value: 2,
+            //             children: [
+            //                 {
+            //                     type: 'Element',
+            //                     tagName: 'p',
+            //                     attributes: {},
+            //                     children: [
+            //                         {
+            //                             type: 'Text',
+            //                             content: 'Radio 2',
+            //                         },
+            //                     ],
+            //                 },
+            //             ]
+            //         },
+            //     ]
+            // }
+
             {
-                type: 'checkBox',
+                type: 'accordion',
                 children: [
                     {
                         type: 'Element',
@@ -347,58 +405,16 @@ const HomeScreen = () => {
                             },
                         ],
                     },
-                ]
+                ],
             },
-            {
-                type: 'radioGroup',
-                onPress: (value) => console.log('value ==> ', value),
-                children: [
-                    {
-                        type: 'radioButton',
-                        value: 1,
-                        children: [
-                            {
-                                type: 'Element',
-                                tagName: 'p',
-                                attributes: {},
-                                children: [
-                                    {
-                                        type: 'Text',
-                                        content: 'Radio 1',
-                                    },
-                                ],
-                            },
-                        ]
-                    },
-                    {
-                        type: 'radioButton',
-                        value: 2,
-                        children: [
-                            {
-                                type: 'Element',
-                                tagName: 'p',
-                                attributes: {},
-                                children: [
-                                    {
-                                        type: 'Text',
-                                        content: 'Radio 2',
-                                    },
-                                ],
-                            },
-                        ]
-                    },
-                ]
-            }
 
-        ]
+        ],
     };
-
-
 
     return (
         <SafeAreaView style={{ flex: 1 }}>
             <ScrollView contentContainerStyle={{ padding: 16 }}>
-                {testConfig && RenderEngine(testConfig)}
+                {testConfig && platformComponents(testConfig)}
             </ScrollView>
         </SafeAreaView >
     );
