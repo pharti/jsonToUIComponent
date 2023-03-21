@@ -1,5 +1,9 @@
 /* eslint-disable prettier/prettier */
-import { Box, Text, Accordion } from "@react-native-material/core";
+import { Box, Link, Text, Radio, HStack, VStack, Stack, Image, FormControl, Input, Button, Accordion, Heading, Avatar, Icon, Checkbox, FlatList } from 'native-base';
+import { Modal } from 'native-base';
+
+const ModalContent = Modal.Content;
+const ModalHeader = Modal.Header;
 
 //... Maps native base component to common HTML tags
 export const ComponentToCommonTagsMap = {
@@ -25,7 +29,7 @@ export const ComponentToCommonTagsMap = {
     del: Text,
     ins: Text,
     card: Box,
-    // Accordion: Accordion,
+    Accordion: Accordion,
 };
 
 //... Maps native base font size standards to HTML tags

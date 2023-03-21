@@ -7,6 +7,12 @@ import RenderEngine from '../helpers/RenderEngine';
 import platformComponents from '../helpers/PlatformDependantComponent';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 
+const dataArray = [
+  { title: "First Element", content: "Lorem ipsum dolor sit amet" },
+  { title: "Second Element", content: "Lorem ipsum dolor sit amet" },
+  { title: "Third Element", content: "Lorem ipsum dolor sit amet" }
+];
+
 const testHTML = `<div class="keyboard-quick-nav">
             <div class="keyboard-quick-nav--wrapper css-10usygl-Wrapper e453bx70">
                 <div role="navigation" class="keyboard-quick-nav--list css-vn8ydf-Menu e453bx71"><a
@@ -393,6 +399,7 @@ const HomeScreen = () => {
 
             {
                 type: 'accordion',
+                attributes :{dataArray : dataArray},
                 children: [
                     {
                         type: 'Element',
